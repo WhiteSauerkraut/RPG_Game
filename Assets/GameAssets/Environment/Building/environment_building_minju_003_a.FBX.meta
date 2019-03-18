@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: d7a71d0197543ee418c4ea036aa021db
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: environment_building_minju_003_17
+    100002: environment_building_minju_003_02
+    100004: environment_building_minju_003_20
+    100006: environment_building_minju_003_08
+    100008: environment_building_minju_003_15
+    100010: environment_building_minju_003_12
+    100012: environment_building_minju_003_04
+    100014: environment_building_minju_003_19
+    100016: environment_building_minju_003_03
+    100018: environment_building_minju_003_07
+    100020: environment_building_minju_003_13
+    100022: environment_building_minju_003_09
+    100024: environment_building_minju_003_05
+    100026: environment_building_minju_003_01
+    100028: environment_building_minju_003_11
+    100030: environment_building_minju_003_18
+    100032: environment_building_minju_003_10
+    100034: environment_building_minju_003_06
+    100036: //RootNode
+    100038: environment_building_minju_003_15 1
+    100040: environment_building_minju_003_14
+    100042: environment_building_minju_003_16 1
+    100044: environment_building_minju_003_16
+    400000: environment_building_minju_003_17
+    400002: environment_building_minju_003_02
+    400004: environment_building_minju_003_20
+    400006: environment_building_minju_003_08
+    400008: environment_building_minju_003_15
+    400010: environment_building_minju_003_12
+    400012: environment_building_minju_003_04
+    400014: environment_building_minju_003_19
+    400016: environment_building_minju_003_03
+    400018: environment_building_minju_003_07
+    400020: environment_building_minju_003_13
+    400022: environment_building_minju_003_09
+    400024: environment_building_minju_003_05
+    400026: environment_building_minju_003_01
+    400028: environment_building_minju_003_11
+    400030: environment_building_minju_003_18
+    400032: environment_building_minju_003_10
+    400034: environment_building_minju_003_06
+    400036: //RootNode
+    400038: environment_building_minju_003_15 1
+    400040: environment_building_minju_003_14
+    400042: environment_building_minju_003_16 1
+    400044: environment_building_minju_003_16
+    2300000: environment_building_minju_003_17
+    2300002: environment_building_minju_003_02
+    2300004: environment_building_minju_003_20
+    2300006: environment_building_minju_003_08
+    2300008: environment_building_minju_003_15
+    2300010: environment_building_minju_003_12
+    2300012: environment_building_minju_003_04
+    2300014: environment_building_minju_003_19
+    2300016: environment_building_minju_003_03
+    2300018: environment_building_minju_003_07
+    2300020: environment_building_minju_003_13
+    2300022: environment_building_minju_003_09
+    2300024: environment_building_minju_003_05
+    2300026: environment_building_minju_003_01
+    2300028: environment_building_minju_003_11
+    2300030: environment_building_minju_003_18
+    2300032: environment_building_minju_003_10
+    2300034: environment_building_minju_003_06
+    2300036: environment_building_minju_003_15 1
+    2300038: environment_building_minju_003_14
+    2300040: environment_building_minju_003_16 1
+    2300042: environment_building_minju_003_16
+    3300000: environment_building_minju_003_17
+    3300002: environment_building_minju_003_02
+    3300004: environment_building_minju_003_20
+    3300006: environment_building_minju_003_08
+    3300008: environment_building_minju_003_15
+    3300010: environment_building_minju_003_12
+    3300012: environment_building_minju_003_04
+    3300014: environment_building_minju_003_19
+    3300016: environment_building_minju_003_03
+    3300018: environment_building_minju_003_07
+    3300020: environment_building_minju_003_13
+    3300022: environment_building_minju_003_09
+    3300024: environment_building_minju_003_05
+    3300026: environment_building_minju_003_01
+    3300028: environment_building_minju_003_11
+    3300030: environment_building_minju_003_18
+    3300032: environment_building_minju_003_10
+    3300034: environment_building_minju_003_06
+    3300036: environment_building_minju_003_15 1
+    3300038: environment_building_minju_003_14
+    3300040: environment_building_minju_003_16 1
+    3300042: environment_building_minju_003_16
+    4300000: environment_building_minju_003_06
+    4300002: environment_building_minju_003_10
+    4300004: environment_building_minju_003_18
+    4300006: environment_building_minju_003_11
+    4300008: environment_building_minju_003_01
+    4300010: environment_building_minju_003_05
+    4300012: environment_building_minju_003_09
+    4300014: environment_building_minju_003_13
+    4300016: environment_building_minju_003_07
+    4300018: environment_building_minju_003_03
+    4300020: environment_building_minju_003_19
+    4300022: environment_building_minju_003_04
+    4300024: environment_building_minju_003_12
+    4300026: environment_building_minju_003_15
+    4300028: environment_building_minju_003_08
+    4300030: environment_building_minju_003_20
+    4300032: environment_building_minju_003_02
+    4300034: environment_building_minju_003_17
+    4300036: environment_building_minju_003_16
+    4300038: environment_building_minju_003_16
+    4300040: environment_building_minju_003_14
+    4300042: environment_building_minju_003_15
+    11100000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 3
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
