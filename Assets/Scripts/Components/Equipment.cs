@@ -1,21 +1,11 @@
 ﻿/**
  * 创建日期：3/15
  * 创建人：lyj
- * 描述：组件类——装备类
+ * 描述：组件类——装备类，继承自物品类
  **/
 
-public class Equipment
+public class Equipment : Item
 {
-
-    // 装备名称
-   public string M_Name { get; set; }
-
-    // 装备描述
-    public string M_Desription { get; set; }
-
-    // 装备图标
-    public string M_Icon { get; set; }
-
     // 装备部位
     public EquipmentPart M_EquipmentPart { get; set; }
 

@@ -66,9 +66,11 @@
     <Compile Include="Assets\GameAssets\OutlineEffect\Demo\Toggle.cs" />
     <Compile Include="Assets\GameAssets\OutlineEffect\LinkedSet.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Common\GlobeManager.cs" />
     <Compile Include="Assets\Scripts\Components\BasicProperty.cs" />
     <Compile Include="Assets\Scripts\Components\BattelProperty.cs" />
     <Compile Include="Assets\Scripts\Components\Equipment.cs" />
+    <Compile Include="Assets\Scripts\Components\Item.cs" />
     <Compile Include="Assets\Scripts\Components\Skill.cs" />
     <Compile Include="Assets\Scripts\Enums\EquipmentGrade.cs" />
     <Compile Include="Assets\Scripts\Enums\EquipmentPart.cs" />
