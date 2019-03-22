@@ -9,9 +9,6 @@ public class Equipment : Item
     // 装备部位
     public EquipmentPart M_EquipmentPart { get; set; }
 
-    // 装备品级
-    public EquipmentGrade M_EquipmentGrade { get; set; }
-
     // 装备稀有度
     public EquipmentRarity M_EquipmentRarity { get; set; }
 
@@ -36,4 +33,8 @@ public class Equipment : Item
     // 速度加成
     public int M_Add_Spd { get; set; }
 
+    /**
+     * 物品使用虚方法
+     */
+    //public abstract void Use();
 }

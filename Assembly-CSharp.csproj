@@ -72,7 +72,6 @@
     <Compile Include="Assets\Scripts\Components\Equipment.cs" />
     <Compile Include="Assets\Scripts\Components\Item.cs" />
     <Compile Include="Assets\Scripts\Components\Skill.cs" />
-    <Compile Include="Assets\Scripts\Enums\EquipmentGrade.cs" />
     <Compile Include="Assets\Scripts\Enums\EquipmentPart.cs" />
     <Compile Include="Assets\Scripts\Enums\EquipmentRarity.cs" />
     <Compile Include="Assets\Scripts\Enums\Race.cs" />

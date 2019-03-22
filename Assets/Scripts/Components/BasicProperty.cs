@@ -11,7 +11,7 @@ public class BasicProperty
     public string M_IconUrl { get; set; }
 
     // 人物模型
-    public string M_Model { get; set; }
+    public string M_ModelUrl { get; set; }
 
     // 名字
     public string M_Name { get; set; }

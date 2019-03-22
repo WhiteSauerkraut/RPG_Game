@@ -4,7 +4,7 @@
  * 描述：组件类——物品超类
  **/
 
-public class Item
+public abstract class Item
 {
     // 名称
     public string M_Name { get; set; }
@@ -14,4 +14,9 @@ public class Item
 
     // 图标路径
     public string M_IconUrl { get; set; }
+
+    /**
+     * 物品使用虚方法
+     */
+    //public abstract void Use();
 }
