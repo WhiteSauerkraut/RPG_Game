@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 41f0cece8c2343043a93e33c9137f08c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: environment_building_menlan_02_c1
+    100002: environment_building_menlan_02_b1
+    100004: //RootNode
+    100006: environment_building_menlan_02_d03
+    100008: environment_building_menlan_02_d02
+    100010: environment_building_menlan_02_c02
+    100012: environment_building_menlan_02_b02
+    100014: environment_building_menlan_02_d1 1
+    100016: environment_building_menlan_02_d1
+    100018: environment_building_menlan_02_a1
+    400000: environment_building_menlan_02_c1
+    400002: environment_building_menlan_02_b1
+    400004: //RootNode
+    400006: environment_building_menlan_02_d03
+    400008: environment_building_menlan_02_d02
+    400010: environment_building_menlan_02_c02
+    400012: environment_building_menlan_02_b02
+    400014: environment_building_menlan_02_d1 1
+    400016: environment_building_menlan_02_d1
+    400018: environment_building_menlan_02_a1
+    2300000: environment_building_menlan_02_c1
+    2300002: environment_building_menlan_02_b1
+    2300004: environment_building_menlan_02_d03
+    2300006: environment_building_menlan_02_d02
+    2300008: environment_building_menlan_02_c02
+    2300010: environment_building_menlan_02_b02
+    2300012: environment_building_menlan_02_d1 1
+    2300014: environment_building_menlan_02_d1
+    2300016: environment_building_menlan_02_a1
+    3300000: environment_building_menlan_02_c1
+    3300002: environment_building_menlan_02_b1
+    3300004: environment_building_menlan_02_d03
+    3300006: environment_building_menlan_02_d02
+    3300008: environment_building_menlan_02_c02
+    3300010: environment_building_menlan_02_b02
+    3300012: environment_building_menlan_02_d1 1
+    3300014: environment_building_menlan_02_d1
+    3300016: environment_building_menlan_02_a1
+    4300000: environment_building_menlan_02_a1
+    4300002: environment_building_menlan_02_d1
+    4300004: environment_building_menlan_02_b1
+    4300006: environment_building_menlan_02_c1
+    4300008: environment_building_menlan_02_d1
+    4300010: environment_building_menlan_02_b02
+    4300012: environment_building_menlan_02_c02
+    4300014: environment_building_menlan_02_d02
+    4300016: environment_building_menlan_02_d03
+    11100000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 3
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

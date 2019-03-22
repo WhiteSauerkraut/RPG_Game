@@ -2,24 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+public delegate void Next();
 public class TalkManager : MonoBehaviour
 {
-    private string[] texts;
-    public GameObject player;
-    GameObject npc;
+    public string[] texts;
     public int index = 0;
-    void Start()
+    public GameObject player;
+
+    public Next next;
+    public void Show(string[] texts,Next next)
     {
-        npc = player.GetComponent<ChooseNpc>().chooseNPC;
-        texts = npc.GetComponent<Talk>().TextList;
         index = 0;
+        this.next = next;
+        this.texts = texts;
         this.transform.GetChild(0).gameObject.GetComponent<Text>().text = texts[index];
+        this.gameObject.SetActive(true);
+    }
+
+    void Close()
+    {
+        index = 0;
+        this.next = null;
+        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (index < texts.Length)
+            this.transform.GetChild(0).gameObject.GetComponent<Text>().text = texts[index];
         if (Input.GetKeyDown(KeyCode.F)){
             index++;
         }
@@ -30,15 +41,15 @@ public class TalkManager : MonoBehaviour
         }
         else if (index == texts.Length-1)
         {
+            //show button as finsh
             this.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "FINISH";
         }
         else
         {
-            index = 0;
-            player.GetComponent<PlayerAttribute>().state = PlayerState.nomal;
-            npc.GetComponent<Talk>().AfterTalk();
+            next();
+            Close();
         }
-        this.transform.GetChild(0).gameObject.GetComponent<Text>().text = texts[index];
+
     }
     public void AddIndex()
     {
