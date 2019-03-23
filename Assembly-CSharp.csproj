@@ -67,6 +67,7 @@
     <Compile Include="Assets\GameAssets\OutlineEffect\LinkedSet.cs" />
     <Compile Include="Assets\Scripts\battleScene\LoadGameObject.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\common\ChoosePlayer.cs" />
     <Compile Include="Assets\Scripts\common\StateManager.cs" />
     <Compile Include="Assets\Scripts\Npc\boss\BossInteract.cs" />
     <Compile Include="Assets\Scripts\Npc\InteractEvents.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Render\OutlineEffect.cs" />
     <Compile Include="Assets\Scripts\techtest\DontDestory.cs" />
     <Compile Include="Assets\Scripts\techtest\InitTransform.cs" />
+    <Compile Include="Assets\Scripts\techtest\Skill.cs" />
     <Compile Include="Assets\Scripts\UI\chooseWindow\choose.cs" />
     <Compile Include="Assets\Scripts\UI\StateManager.cs" />
     <Compile Include="Assets\Scripts\UI\talkWindow\TalkManager.cs" />

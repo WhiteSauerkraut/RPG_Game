@@ -22,7 +22,7 @@ public class ChooseNpc : MonoBehaviour
         {
 
             chooseNPC = other.gameObject;
-            chooseNPC.GetComponentInChildren<cakeslice.Outline>().enabled = true;
+            chooseNPC.transform.GetChild(0).GetComponentInChildren<cakeslice.Outline>().enabled = true;
         }
     }
 
