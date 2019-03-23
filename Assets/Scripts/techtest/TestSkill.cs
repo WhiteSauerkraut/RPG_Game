@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill : MonoBehaviour
+public class TestSkill : MonoBehaviour
 {
     public Transform set;
     // Update is called once per frame
