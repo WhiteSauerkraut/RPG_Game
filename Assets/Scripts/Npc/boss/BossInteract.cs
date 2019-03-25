@@ -17,7 +17,9 @@ public class BossInteract : MonoBehaviour,InteractEvents
     }
     void FightNext()
     {
-        Debug.Log("fight");
+        string[] teammates = { "郭靖" };
+        string[] enemys = { "完颜康" };
+        GlobeManager.GetInstance().StartBattle(teammates, enemys, 1);
     }
     void TalkNext()
     {

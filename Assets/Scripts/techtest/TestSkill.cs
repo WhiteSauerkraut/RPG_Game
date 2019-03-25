@@ -29,11 +29,11 @@ public class TestSkill : MonoBehaviour
 
         float tt = 0;
         player.transform.LookAt(end);
+        a.SetFloat("speed", 5);
         while (player.transform.position != end)
         {
             player.transform.position = Vector3.Lerp(from, end, tt);
             tt += Time.deltaTime;
-            a.SetFloat("speed", 5);
             yield return null;
         }
         a.Play("attack1");

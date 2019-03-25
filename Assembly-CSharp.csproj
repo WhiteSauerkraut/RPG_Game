@@ -67,6 +67,7 @@
     <Compile Include="Assets\GameAssets\OutlineEffect\LinkedSet.cs" />
     <Compile Include="Assets\Scripts\battleScene\LoadGameObject.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\common\BattleManager.cs" />
     <Compile Include="Assets\Scripts\common\ChoosePlayer.cs" />
     <Compile Include="Assets\Scripts\common\GlobeManager.cs" />
     <Compile Include="Assets\Scripts\common\StateManager.cs" />

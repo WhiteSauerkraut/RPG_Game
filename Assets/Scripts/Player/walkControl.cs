@@ -7,6 +7,7 @@ public class walkControl : MonoBehaviour
     CharacterController player;
     Animator animator;
     Vector3 moveDirection;
+
     public float walkSpeed = 3;
     public float runSpeed = 5;
     public float backSpeed = -2;
@@ -17,18 +18,20 @@ public class walkControl : MonoBehaviour
     void Start()
     {
         player = GetComponent<CharacterController>();
-        animator = this.transform.GetChild(1).gameObject.GetComponent<Animator>();
+        animator = this.transform.GetComponentInChildren<Animator>();
         playerAttribute = this.GetComponent<PlayerAttribute>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //nomal 状态下可以控制
         if (playerAttribute.state == PlayerState.nomal)
         {
-
+            //在空中的时候不能控制
             if (player.isGrounded)
             {
+                //WASD控制
                 if (Input.GetKey(KeyCode.W))
                 {
                     Quaternion q = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);

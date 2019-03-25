@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class ChooseNpc : MonoBehaviour
 {
+
     public GameObject chooseNPC;
     public GameObject interactWindow;
     private void Update()
     {
+        //当触发器选择到NPC时，按F与NPC交互
         if (chooseNPC != null && Input.GetKeyDown(KeyCode.F))
         {
             this.GetComponent<PlayerAttribute>().state = PlayerState.interact;
             interactWindow.transform.Find("ChooseWindow").gameObject.SetActive(true);
         }
     }
-
+    //当NPC进入触发器时，选择该NPC
     private void OnTriggerEnter(Collider other)
     {
 
@@ -25,7 +27,7 @@ public class ChooseNpc : MonoBehaviour
             chooseNPC.transform.GetChild(0).GetComponentInChildren<cakeslice.Outline>().enabled = true;
         }
     }
-
+    //当NPC离开触发器时，将chooseNPC置为空
     private void OnTriggerExit(Collider other)
     {
         if (chooseNPC != null && other.gameObject == chooseNPC)
