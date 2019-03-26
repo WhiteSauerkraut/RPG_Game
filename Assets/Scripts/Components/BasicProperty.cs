@@ -8,10 +8,10 @@
 public class BasicProperty
 {
     // 人物头像路径
-    public string M_IconUrl { get; set; }
+    public string M_IconPath { get; set; }
 
     // 人物模型
-    public string M_ModelUrl { get; set; }
+    public string M_ModelPath { get; set; }
 
     // 名字
     public string M_Name { get; set; }

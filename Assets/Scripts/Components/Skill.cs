@@ -13,7 +13,7 @@ public class Skill
     public string M_Desription { get; set; }
 
     // 技能图标
-    public string M_IconUrl { get; set; }
+    public string M_IconPath { get; set; }
 
 
 }

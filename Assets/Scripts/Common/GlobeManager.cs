@@ -15,17 +15,16 @@ using UnityEngine.UI;
 
 public class GlobeManager : MonoBehaviour
 {
+    public static Item[] Items { get; }
 
+    public static Dictionary<string, Player> Players { get; }
 
-    public Item[] Items { get; }
-
-    public Dictionary<string, Player> Players { get; }
-
-    private static readonly GlobeManager instance = null;
-
-    static GlobeManager()
+    /**
+     * 加载到下一场景
+     */
+    private void Awake()
     {
-        instance = new GlobeManager();
+        DontDestroyOnLoad(this);
     }
 
     /**
@@ -35,8 +34,8 @@ public class GlobeManager : MonoBehaviour
     {
         Player role = new Player();
         
-        role.M_BasicProperty.M_IconUrl = "";
-        role.M_BasicProperty.M_ModelUrl = "Prefabs/role";
+        role.M_BasicProperty.M_IconPath = "";
+        role.M_BasicProperty.M_ModelPath = "Prefabs/role";
         role.M_BasicProperty.M_Name = "郭靖";
         role.M_BasicProperty.M_Sex = Sex.Man;
         role.M_BasicProperty.M_Level = 1;
@@ -55,8 +54,8 @@ public class GlobeManager : MonoBehaviour
 
         Player boss = new Player();
 
-        boss.M_BasicProperty.M_IconUrl = "";
-        boss.M_BasicProperty.M_ModelUrl = "Prefabs/boss";
+        boss.M_BasicProperty.M_IconPath = "";
+        boss.M_BasicProperty.M_ModelPath = "Prefabs/boss";
         boss.M_BasicProperty.M_Name = "完颜康";
         boss.M_BasicProperty.M_Sex = Sex.Man;
         boss.M_BasicProperty.M_Level = 1;
@@ -82,7 +81,8 @@ public class GlobeManager : MonoBehaviour
      */
     public static GlobeManager GetInstance()
     {
-        return instance;
+        GlobeManager globeManager = GameObject.Find("GM").GetComponent<GlobeManager>();
+        return globeManager;
     }
 
     /**

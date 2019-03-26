@@ -13,7 +13,10 @@ public abstract class Item
     public string M_Desription { get; set; }
 
     // 图标路径
-    public string M_IconUrl { get; set; }
+    public string M_IconPath { get; set; }
+
+    // 出售价格
+    public string M_Price { get; set; }
 
     /**
      * 物品使用虚方法
