@@ -45,11 +45,11 @@ public class GlobeManager : MonoBehaviour
         role.M_BattelProperty.M_CurrentMp = 100;
         role.M_BattelProperty.M_MaxHp = 100;
         role.M_BattelProperty.M_MaxHp = 100;
-        role.M_BattelProperty.M_Physical_Attack = 10;
-        role.M_BattelProperty.M_Physical_Defense = 10;
-        role.M_BattelProperty.M_Magic_Attack = 5;
-        role.M_BattelProperty.M_Magic_Defense = 5;
-        role.M_BattelProperty.M_Speed = 10;
+        role.M_BattelProperty.M_Atk = 10;
+        role.M_BattelProperty.M_Def = 10;
+        role.M_BattelProperty.M_Mgk = 5;
+        role.M_BattelProperty.M_Rgs = 5;
+        role.M_BattelProperty.M_Spd = 10;
         role.M_BattelProperty.M_State = State.Normal;
 
         Player boss = new Player();
@@ -65,11 +65,11 @@ public class GlobeManager : MonoBehaviour
         boss.M_BattelProperty.M_CurrentMp = 100;
         boss.M_BattelProperty.M_MaxHp = 100;
         boss.M_BattelProperty.M_MaxHp = 100;
-        boss.M_BattelProperty.M_Physical_Attack = 10;
-        boss.M_BattelProperty.M_Physical_Defense = 10;
-        boss.M_BattelProperty.M_Magic_Attack = 5;
-        boss.M_BattelProperty.M_Magic_Defense = 5;
-        boss.M_BattelProperty.M_Speed = 10;
+        boss.M_BattelProperty.M_Atk = 10;
+        boss.M_BattelProperty.M_Def = 10;
+        boss.M_BattelProperty.M_Mgk = 5;
+        boss.M_BattelProperty.M_Rgs = 5;
+        boss.M_BattelProperty.M_Spd = 10;
         boss.M_BattelProperty.M_State = State.Normal;
 
         PutPlayer(role.M_BasicProperty.M_Name, role);

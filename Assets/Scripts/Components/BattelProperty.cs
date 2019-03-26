@@ -20,19 +20,19 @@ public class BattelProperty
     public int M_MaxMp { get; set; }
 
     // 物理攻击力
-    public int M_Physical_Attack { get; set; }
+    public int M_Atk { get; set; }
 
     // 物理防御力
-    public int M_Physical_Defense { get; set; }
+    public int M_Def { get; set; }
 
     // 法术攻击力
-    public int M_Magic_Attack { get; set; }
+    public int M_Mgk { get; set; }
 
     // 法术防御力
-    public int M_Magic_Defense { get; set; }
+    public int M_Rgs { get; set; }
 
     // 速度
-    public int M_Speed { get; set; }
+    public int M_Spd { get; set; }
 
     // 状态
     public State M_State { get; set; }

@@ -7,16 +7,16 @@
 public enum EquipmentPart
 {
     // 头部
-    Head,
+    Head = 0,
     // 身体
-    Body,
+    Body = 1,
     // 腿部
-    Leg,
+    Leg = 2,
     // 脚部
-    Foot,
+    Foot = 3,
     // 手部
-    Hand,
+    Hand = 4,
     // 颈部
-    Neck,
+    Neck = 5,
 
 }

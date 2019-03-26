@@ -21,5 +21,10 @@ public abstract class Item
     /**
      * 物品使用虚方法
      */
-    //public abstract void Use();
+    public abstract void Use();
+
+    /**
+     * 物品丢弃方法
+     */
+    public void Drop() { }
 }
