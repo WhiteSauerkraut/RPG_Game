@@ -15,9 +15,9 @@ using UnityEngine.UI;
 
 public class GlobeManager : MonoBehaviour
 {
-    public static Item[] Items { get; }
+    public Item[] Items { get; }
 
-    public static Dictionary<string, Player> Players { get; }
+    public Dictionary<string, Player> Players;
 
     /**
      * 加载到下一场景
@@ -25,6 +25,7 @@ public class GlobeManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        Init();
     }
 
     /**
@@ -32,6 +33,7 @@ public class GlobeManager : MonoBehaviour
      */
     private void Init()
     {
+        Players = new Dictionary<string, Player>();
         Player role = new Player();
         
         role.M_BasicProperty.M_IconPath = "";
@@ -107,7 +109,7 @@ public class GlobeManager : MonoBehaviour
     public void StartBattle(string[] teammates, string[] enemys, int index/*场景编号*/)
     {
         //加入战斗
-        BattleManager battleManager = BattleManager.Instance;
+        BattleManager battleManager = this.GetComponent<BattleManager>();
         foreach (string teammate in teammates)
         {
             battleManager.AddTeamate(teammate);
@@ -117,9 +119,6 @@ public class GlobeManager : MonoBehaviour
             battleManager.AddEnemy(enemy);
         }
 
-        //初始化数值
-
-        battleManager.Init();
 
         //加载场景
         StartCoroutine(LoadScene(index));
@@ -131,16 +130,26 @@ public class GlobeManager : MonoBehaviour
     IEnumerator LoadScene(int index)
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(index);
-        Debug.Log(async);
         GameObject loadingWindow = GameObject.Find("Canvas").transform.Find("LoadingWindow").gameObject;
+        loadingWindow.SetActive(true);
         loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress / 0.9f;
+        async.allowSceneActivation = false;
+        StartCoroutine(AllowSceneActivation(1f, async));
         if (!async.isDone)
         {
             loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress/ 0.9f;
             yield return null;
         }
+        else
+        {
+            GetComponent<BattleManager>().Init();
+        }
 
-        yield return new WaitForSeconds(1);
-
+    }
+    //防止加载动画一闪而过
+    IEnumerator AllowSceneActivation(float time, AsyncOperation async)
+    {
+        yield return new WaitForSeconds(time);
+        async.allowSceneActivation = true;
     }
 }
