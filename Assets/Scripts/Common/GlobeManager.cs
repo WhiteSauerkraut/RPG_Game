@@ -15,9 +15,9 @@ using UnityEngine.UI;
 
 public class GlobeManager : MonoBehaviour
 {
-    public Item[] Items { get; }
+    public Item[] Items { set; get; }
 
-    public Dictionary<string, Player> Players;
+    public Dictionary<string, Player> Players { set; get; }
 
     /**
      * 加载到下一场景
@@ -33,7 +33,15 @@ public class GlobeManager : MonoBehaviour
      */
     private void Init()
     {
-        Players = new Dictionary<string, Player>();
+        if(Players == null)
+        {
+            Players = new Dictionary<string, Player>();
+        }
+
+        // 读档
+        SaveManager.GetInstance().Load();
+
+        /*
         Player role = new Player();
         
         role.M_BasicProperty.M_IconPath = "";
@@ -76,6 +84,7 @@ public class GlobeManager : MonoBehaviour
 
         PutPlayer(role.M_BasicProperty.M_Name, role);
         PutPlayer(boss.M_BasicProperty.M_Name, boss);
+        */
     }
 
     /**
@@ -100,7 +109,7 @@ public class GlobeManager : MonoBehaviour
      */
     public void PutPlayer(string key, Player player)
     {
-        Players.Add(key, player);
+        Players[key] = player;
     }
 
     /**
