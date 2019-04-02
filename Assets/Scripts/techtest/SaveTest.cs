@@ -23,5 +23,10 @@ public class SaveTest : MonoBehaviour
         {
             SaveManager.GetInstance().Load();
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            SaveManager.GetInstance().Delete();
+        }
     }
 }
