@@ -45,6 +45,11 @@ public class SaveManager
     public void Load()
     {
         Debug.Log("Load 调用.......");
+        if(!SaveHelper.IsDirectoryExists(savePlayerPath))
+        {
+            InitData();
+            Save();
+        }
         LoadPlayers();    
     }
 
@@ -99,6 +104,56 @@ public class SaveManager
             Player player = LoadPlayer(file.FullName);
             string key = Path.GetFileNameWithoutExtension(file.Name);
             players[key] = player;
+            Debug.Log("File Path " + file.FullName);
         }
+    }
+
+    /**
+     * 存档不存在时，初始化数据并生成存档文件
+     * */
+     private void InitData()
+    {
+       Player role = new Player();
+
+       role.M_BasicProperty.M_IconPath = "";
+       role.M_BasicProperty.M_ModelPath = "Prefabs/role";
+       role.M_BasicProperty.M_Name = "郭靖";
+       role.M_BasicProperty.M_Sex = Sex.Man;
+       role.M_BasicProperty.M_Level = 1;
+
+       role.M_BasicProperty.M_Race = Race.Human;
+       role.M_BattelProperty.M_CurrentHp = 100;
+       role.M_BattelProperty.M_CurrentMp = 100;
+       role.M_BattelProperty.M_MaxHp = 100;
+       role.M_BattelProperty.M_MaxHp = 100;
+       role.M_BattelProperty.M_Atk = 10;
+       role.M_BattelProperty.M_Def = 10;
+       role.M_BattelProperty.M_Mgk = 5;
+       role.M_BattelProperty.M_Rgs = 5;
+       role.M_BattelProperty.M_Spd = 10;
+       role.M_BattelProperty.M_State = State.Normal;
+
+       Player boss = new Player();
+
+       boss.M_BasicProperty.M_IconPath = "";
+       boss.M_BasicProperty.M_ModelPath = "Prefabs/boss";
+       boss.M_BasicProperty.M_Name = "完颜康";
+       boss.M_BasicProperty.M_Sex = Sex.Man;
+       boss.M_BasicProperty.M_Level = 1;
+       boss.M_BasicProperty.M_Race = Race.Tao;
+
+       boss.M_BattelProperty.M_CurrentHp = 100;
+       boss.M_BattelProperty.M_CurrentMp = 100;
+       boss.M_BattelProperty.M_MaxHp = 100;
+       boss.M_BattelProperty.M_MaxHp = 100;
+       boss.M_BattelProperty.M_Atk = 10;
+       boss.M_BattelProperty.M_Def = 10;
+       boss.M_BattelProperty.M_Mgk = 5;
+       boss.M_BattelProperty.M_Rgs = 5;
+       boss.M_BattelProperty.M_Spd = 10;
+       boss.M_BattelProperty.M_State = State.Normal;
+
+       GlobeManager.GetInstance().PutPlayer(role.M_BasicProperty.M_Name, role);
+       GlobeManager.GetInstance().PutPlayer(boss.M_BasicProperty.M_Name, boss);
     }
 }
