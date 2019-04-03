@@ -53,6 +53,15 @@ public class SaveManager
         LoadPlayers();    
     }
 
+    /**
+     * 删除存档
+     * */
+    public void Delete()
+    {
+        Debug.Log("Delete 调用.......");
+        SaveHelper.DeleteFolder(savePath);
+    }
+
     /*
      * 存储人物信息
      */
@@ -85,7 +94,6 @@ public class SaveManager
         foreach(string key in players.Keys)
         {
             SavePlayer(players[key]);
-            Debug.Log("Save " + key);
         }
     }
 
@@ -104,7 +112,6 @@ public class SaveManager
             Player player = LoadPlayer(file.FullName);
             string key = Path.GetFileNameWithoutExtension(file.Name);
             players[key] = player;
-            Debug.Log("File Path " + file.FullName);
         }
     }
 

@@ -50,6 +50,45 @@ public static class SaveHelper
         Directory.CreateDirectory(fileName);
     }
 
+    /**
+     * 删除文件夹及其文件
+     * */
+    public static void DeleteFolder(string file)
+    {
+        try
+        {
+            System.IO.DirectoryInfo fileInfo = new DirectoryInfo(file)
+            {
+                Attributes = FileAttributes.Normal & FileAttributes.Directory
+            };
+
+            // 去除文件的只读属性
+            System.IO.File.SetAttributes(file, System.IO.FileAttributes.Normal);
+
+            // 判断文件夹是否还存在
+            if (Directory.Exists(file))
+
+            {
+                foreach (string f in Directory.GetFileSystemEntries(file))
+                {
+                    if (File.Exists(f))
+                    {
+                        File.Delete(f);
+                    }
+                    else
+                    {
+                        DeleteFolder(f);
+                    }
+                }
+                Directory.Delete(file);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message.ToString());
+        }
+    }
+
     /*
      * 将对象存入文本
      */
