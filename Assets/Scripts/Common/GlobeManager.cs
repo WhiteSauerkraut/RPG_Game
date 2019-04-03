@@ -99,15 +99,12 @@ public class GlobeManager : MonoBehaviour
         loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress / 0.9f;
         async.allowSceneActivation = false;
         StartCoroutine(AllowSceneActivation(1f, async));
-        if (!async.isDone)
+        while (!async.isDone)
         {
             loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress/ 0.9f;
             yield return null;
         }
-        else
-        {
-            GetComponent<BattleManager>().Init();
-        }
+        GetComponent<BattleManager>().Init();
 
     }
     //防止加载动画一闪而过

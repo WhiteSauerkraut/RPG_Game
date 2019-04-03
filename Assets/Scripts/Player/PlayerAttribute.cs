@@ -5,7 +5,8 @@ using UnityEngine;
 public enum PlayerState
 {
     nomal,
-    interact
+    interact,
+    fight
 }
 
 //人物的状态

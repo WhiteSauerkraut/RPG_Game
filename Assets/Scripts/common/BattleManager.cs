@@ -8,9 +8,7 @@ using UnityEngine;
  * 更新人：yzy
  * 描述：绑定在GM，全局。
  **/
-public enum BattleState{
 
-}
 public class BattleManager:MonoBehaviour
 {
     //队友列表
@@ -23,6 +21,10 @@ public class BattleManager:MonoBehaviour
     private int index=0;
     //战斗数量统计
     private int count=0;
+    //战斗状态
+    public BattleState battleState;
+    //UI
+    private GameObject canvas;
 
     private void Awake()
     {
@@ -33,32 +35,32 @@ public class BattleManager:MonoBehaviour
     //初始化
     public void Init()
     {
+        que = new Player[8];
         //初始化位置，并加入战斗队列
         index = 0;
-        int setIndex = 0;
-        Transform sets = GameObject.Find("Sets/Teammates").transform;
+        int teammateSetIndex = 0;
+        int enemySetIndex = 0;
+        Transform teammateSets = GameObject.Find("Sets/Teammates").transform;
+        Transform enemySets = GameObject.Find("Sets/Enemys").transform;
 
         foreach (Player teammate in teammates)
         {
             GameObject player = (GameObject)Resources.Load(teammate.M_BasicProperty.M_ModelPath);
             player.name = teammate.M_BasicProperty.M_Name;
-            InitSet(player, sets.GetChild(setIndex++));
+            InitSet(player, teammateSets.GetChild(teammateSetIndex++));
             AddToQue(teammate);
         }
 
-        foreach (Player enemy in teammates)
+        foreach (Player enemy in enemys)
         {
             GameObject player = (GameObject)Resources.Load(enemy.M_BasicProperty.M_ModelPath);
             player.name = enemy.M_BasicProperty.M_Name;
-            InitSet(player, sets.GetChild(setIndex++));
+            InitSet(player, enemySets.GetChild(enemySetIndex++));
             AddToQue(enemy);
         }
         index = 0;
-
-
-
-
-
+        battleState = BattleState.prepare;
+        canvas = GameObject.Find("Canvas");
     }
     private void InitSet(GameObject _player, Transform set)
     {
@@ -97,8 +99,15 @@ public class BattleManager:MonoBehaviour
             que[i - 1] = tmp;
         }
     }
-    private void Update()
+    private void Start()
     {
 
     }
+    private void Update()
+    {
+
+
+    }
+
+
 }
