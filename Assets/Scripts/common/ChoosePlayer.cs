@@ -43,4 +43,19 @@ public class ChoosePlayer : MonoBehaviour
         }
 
     }
+
+    public bool GetFlag()
+    {
+        return flag;
+    }
+
+    public void SetFlag(bool flag)
+    {
+        this.flag = flag;
+    }
+
+    public GameObject GetChoose()
+    {
+        return choose;
+    }
 }

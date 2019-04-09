@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 /**
  * 创建日期：3/23
  * 创建人：yzy
@@ -27,6 +29,7 @@ public class BattleManager:MonoBehaviour
     public int index;
     public int battleCount;
 
+    private GameObject canvas;
     public void Init()
     {
         enemys = new GameObject[4];
@@ -40,8 +43,8 @@ public class BattleManager:MonoBehaviour
         que = new GameObject[8];
         index = 0;
         battleCount = 0;
-
-//        GameObject.Find("Canvas/OperationWindow").SetActive(true);
+        canvas = GameObject.Find("Canvas");
+        canvas.transform.Find("OperationWindow").gameObject.SetActive(true);
         isInit = true;
     }
 
@@ -84,5 +87,98 @@ public class BattleManager:MonoBehaviour
     public GameObject GetPlayerTurn()
     {
         return que[index];
+    }
+
+    public IEnumerator ChooseGoal(int num, GameObject[] goals, Skill skill)
+    {
+        GameObject explainWindow = canvas.transform.Find("ExplainWindow").gameObject;
+
+        explainWindow.GetComponentInChildren<Text>().text = "请选择" + num.ToString() + "个目标";
+        explainWindow.SetActive(true);
+        ChoosePlayer cp = GameObject.Find("GlobalManager").GetComponent<ChoosePlayer>();
+
+        int count = 0;
+        while (count < num)
+        {
+            cp.SetFlag(false);
+
+            yield return new WaitUntil(cp.GetFlag);
+
+            goals[count++] = cp.GetChoose();
+        }
+
+        int n = canvas.transform.childCount;
+        for (int i=0; i<n; i++)
+        {
+            canvas.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        skill.SetFlag(true);
+    }
+
+    public IEnumerator MoveTo(GameObject player, Transform goal, Skill skill)
+    {
+        Animator animator = player.GetComponentInChildren<Animator>();
+
+        player.transform.LookAt(goal);
+        animator.SetFloat("speed", 5);
+        float tt = 0;
+        Vector3 origin = player.transform.position;
+        Vector3 end = goal.position;
+
+        while (player.transform.position != goal.position)
+        {
+            player.transform.position = Vector3.Lerp(origin, end, tt);
+            tt += Time.deltaTime;
+            yield return null;
+        }
+        animator.SetFloat("speed", 0);
+        skill.SetFlag(true);
+    }
+
+    public IEnumerator PhysicalAttack(GameObject player, Skill skill)
+    {
+        Animator animator = player.GetComponentInChildren<Animator>();
+        animator.Play("physicalAttack");
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        //yield return new WaitUntil(() => {return info.IsName("Base Layer.physicalAttack") && info.normalizedTime >= 1.0f; });
+        yield return new WaitForSeconds(1.3f);
+        animator.Play("idle");
+        skill.SetFlag(true);
+    }
+
+    public IEnumerator TrunBack(GameObject player, Transform goal, Skill skill)
+    {
+        Animator animator = player.GetComponentInChildren<Animator>();
+
+        player.transform.LookAt(goal);
+        animator.SetFloat("speed", 5);
+        float tt = 0;
+        Vector3 origin = player.transform.position;
+        Vector3 end = goal.position;
+
+        while (player.transform.position != goal.position)
+        {
+            player.transform.position = Vector3.Lerp(origin, end, tt);
+            tt += Time.deltaTime;
+            yield return null;
+        }
+        animator.SetFloat("speed", 0);
+        player.transform.localPosition = Vector3.zero;
+        player.transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+        skill.SetFlag(true);
+    }
+
+    public IEnumerator Defend(GameObject player, Skill skill)
+    {
+        Animator animator = player.GetComponentInChildren<Animator>();
+
+        animator.Play("defend");
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        //yield return new WaitUntil(() => { return info.IsName("Base Layer.defend") &&info.normalizedTime >= 1.0f; });
+        yield return new WaitForSeconds(1f);
+        animator.Play("idle");
+        Debug.Log("hi");
     }
 }

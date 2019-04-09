@@ -23,4 +23,8 @@ public interface Skill
 
     void AfterUseSkill();
 
+    void SetFlag(bool flag);
+
+    bool GetFlag();
+
 }
