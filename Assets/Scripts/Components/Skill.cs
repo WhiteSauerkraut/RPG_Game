@@ -4,16 +4,23 @@
  * 描述：组件类——技能类
  **/
 
-public class Skill
+public interface Skill
 {
     // 技能名称
-    public string M_Name { get; set; }
+    string GetSKillName();
 
     // 技能描述
-    public string M_Desription { get; set; }
+    string GetDescription();
 
     // 技能图标
-    public string M_IconPath { get; set; }
+    string GetIconPath();
 
+    void UseSkill();
+
+    void ChooseGoal();
+
+    void BeforeUseSkill();
+
+    void AfterUseSkill();
 
 }

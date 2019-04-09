@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //主场景的人物状态
-public enum PlayerState
-{
+public enum PlayerState{
     nomal,
     interact,
     fight

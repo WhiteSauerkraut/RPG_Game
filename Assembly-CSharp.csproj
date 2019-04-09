@@ -65,7 +65,6 @@
     <Compile Include="Assets\GameAssets\OutlineEffect\Demo\Rotate.cs" />
     <Compile Include="Assets\GameAssets\OutlineEffect\Demo\Toggle.cs" />
     <Compile Include="Assets\GameAssets\OutlineEffect\LinkedSet.cs" />
-    <Compile Include="Assets\Scripts\battleScene\LoadGameObject.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Common\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Common\ChoosePlayer.cs" />
@@ -73,17 +72,9 @@
     <Compile Include="Assets\Scripts\Common\Save\SaveHelper.cs" />
     <Compile Include="Assets\Scripts\Common\Save\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Common\StateManager.cs" />
-    <Compile Include="Assets\Scripts\Components\BasicProperty.cs" />
-    <Compile Include="Assets\Scripts\Components\BattelProperty.cs" />
-    <Compile Include="Assets\Scripts\Components\Equipment.cs" />
-    <Compile Include="Assets\Scripts\Components\Item.cs" />
+    <Compile Include="Assets\Scripts\Components\PlayerComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Skill.cs" />
-    <Compile Include="Assets\Scripts\Enums\BattleState.cs" />
-    <Compile Include="Assets\Scripts\Enums\EquipmentPart.cs" />
-    <Compile Include="Assets\Scripts\Enums\EquipmentRarity.cs" />
-    <Compile Include="Assets\Scripts\Enums\Race.cs" />
-    <Compile Include="Assets\Scripts\Enums\Sex.cs" />
-    <Compile Include="Assets\Scripts\Enums\State.cs" />
+    <Compile Include="Assets\Scripts\Components\skills\NormalAtk.cs" />
     <Compile Include="Assets\Scripts\Npc\boss\BossInteract.cs" />
     <Compile Include="Assets\Scripts\Npc\InteractEvents.cs" />
     <Compile Include="Assets\Scripts\Player\ChooseNpc.cs" />
@@ -96,7 +87,7 @@
     <Compile Include="Assets\Scripts\techtest\InitTransform.cs" />
     <Compile Include="Assets\Scripts\techtest\SaveTest.cs" />
     <Compile Include="Assets\Scripts\techtest\TestSkill.cs" />
-    <Compile Include="Assets\Scripts\UI\Battle\BattleCanvasManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Battle\ShowWindows.cs" />
     <Compile Include="Assets\Scripts\UI\main\chooseWindow\choose.cs" />
     <Compile Include="Assets\Scripts\UI\main\MainInterface\Character_Interface\SwitchInterface.cs" />
     <Compile Include="Assets\Scripts\UI\main\MainInterface\MainUIMannager.cs" />

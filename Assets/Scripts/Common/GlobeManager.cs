@@ -15,9 +15,8 @@ using UnityEngine.UI;
 
 public class GlobeManager : MonoBehaviour
 {
-    public Item[] Items { set; get; }
 
-    public Dictionary<string, Player> Players { set; get; }
+    public Dictionary<string, Player> playersDictionary;
 
     /**
      * 加载到下一场景
@@ -33,22 +32,25 @@ public class GlobeManager : MonoBehaviour
      */
     private void Init()
     {
-        if(Players == null)
-        {
-            Players = new Dictionary<string, Player>();
-        }
+        playersDictionary = new Dictionary<string, Player>();
+        Player mainChracter = new Player();
+        Debug.Log(mainChracter);
+        mainChracter.playerName = "郭靖";
+        mainChracter.atk = 20;
+        mainChracter.hp = 100;
+        mainChracter.modelUrl = "Prefabs/role";
+        mainChracter.skills = new string[]{"NormalAtk","NormalAtk", "NormalAtk", "NormalAtk"};
 
-        // 读取存档数据，若不存在则初始化
-        SaveManager.GetInstance().Load();
-    }
+        Player enemy = new Player();
+        enemy.playerName = "完颜康";
+        enemy.atk = 15;
+        enemy.hp = 80;
+        enemy.modelUrl = "Prefabs/boss";
+        enemy.skills = new string[] { "NormalAtk", "NormalAtk", "NormalAtk", "NormalAtk" };
 
-    /**
-     * 取得全局管理类实例
-     */
-    public static GlobeManager GetInstance()
-    {
-        GlobeManager globeManager = GameObject.Find("GM").GetComponent<GlobeManager>();
-        return globeManager;
+        PutPlayer("郭靖", mainChracter);
+        PutPlayer("完颜康", enemy);
+
     }
 
     /**
@@ -56,7 +58,7 @@ public class GlobeManager : MonoBehaviour
      */
     public Player GetPlayer(string key)
     {
-        return Players[key];
+        return playersDictionary[key];
     }
 
     /**
@@ -64,7 +66,7 @@ public class GlobeManager : MonoBehaviour
      */
     public void PutPlayer(string key, Player player)
     {
-        Players[key] = player;
+        playersDictionary[key] = player;
     }
 
     /**
@@ -72,26 +74,16 @@ public class GlobeManager : MonoBehaviour
      */
     public void StartBattle(string[] teammates, string[] enemys, int index/*场景编号*/)
     {
-        //加入战斗
-        BattleManager battleManager = this.GetComponent<BattleManager>();
-        foreach (string teammate in teammates)
-        {
-            battleManager.AddTeamate(teammate);
-        }
-        foreach (string enemy in enemys)
-        {
-            battleManager.AddEnemy(enemy);
-        }
 
-
+        GetComponent<BattleManager>().isInit = false;
         //加载场景
-        StartCoroutine(LoadScene(index));
+        StartCoroutine(LoadScene(teammates, enemys, index));
 
     }
 
     //异步加载场景
 
-    IEnumerator LoadScene(int index)
+    IEnumerator LoadScene(string[] teammates, string[] enemys,  int index)
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(index);
         GameObject loadingWindow = GameObject.Find("Canvas").transform.Find("LoadingWindow").gameObject;
@@ -105,7 +97,16 @@ public class GlobeManager : MonoBehaviour
             yield return null;
         }
         GetComponent<BattleManager>().Init();
-
+        //加入战斗
+        BattleManager battleManager = this.GetComponent<BattleManager>();
+        foreach (string teammate in teammates)
+        {
+            battleManager.AddTeammates(teammate);
+        }
+        foreach (string enemy in enemys)
+        {
+            battleManager.AddEnemys(enemy);
+        }
     }
     //防止加载动画一闪而过
     IEnumerator AllowSceneActivation(float time, AsyncOperation async)
@@ -113,4 +114,5 @@ public class GlobeManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         async.allowSceneActivation = true;
     }
+
 }

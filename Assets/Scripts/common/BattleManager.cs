@@ -8,106 +8,81 @@ using UnityEngine;
  * 更新人：yzy
  * 描述：绑定在GM，全局。
  **/
+public delegate void ATKEvent(GameObject gameObject);
 
 public class BattleManager:MonoBehaviour
 {
-    //队友列表
-    private List<Player> teammates;
-    //敌人列表
-    private List<Player> enemys;
-    //队列
-    private Player[] que;
-    //索引
-    private int index=0;
-    //战斗数量统计
-    private int count=0;
-    //战斗状态
-    public BattleState battleState;
-    //UI
-    private GameObject canvas;
+    public bool isInit = false;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-        teammates = new List<Player>();
-        enemys = new List<Player>();
-    }
-    //初始化
+    public GameObject[] enemys;
+    public int enemysIndex;
+    public Transform enemySets;
+
+    public GameObject[] teammates;
+    public int teammatesIndex;
+    public Transform teammatesSets;
+
+
+    public GameObject[] que;
+    public int index;
+    public int battleCount;
+
     public void Init()
     {
-        que = new Player[8];
-        //初始化位置，并加入战斗队列
+        enemys = new GameObject[4];
+        enemysIndex = 0;
+        enemySets = GameObject.Find("Sets/Enemys").transform;
+
+        teammates = new GameObject[4];
+        teammatesIndex = 0;
+        teammatesSets = GameObject.Find("Sets/Teammates").transform;
+
+        que = new GameObject[8];
         index = 0;
-        int teammateSetIndex = 0;
-        int enemySetIndex = 0;
-        Transform teammateSets = GameObject.Find("Sets/Teammates").transform;
-        Transform enemySets = GameObject.Find("Sets/Enemys").transform;
+        battleCount = 0;
 
-        foreach (Player teammate in teammates)
-        {
-            GameObject player = (GameObject)Resources.Load(teammate.M_BasicProperty.M_ModelPath);
-            player.name = teammate.M_BasicProperty.M_Name;
-            InitSet(player, teammateSets.GetChild(teammateSetIndex++));
-            AddToQue(teammate);
-        }
-
-        foreach (Player enemy in enemys)
-        {
-            GameObject player = (GameObject)Resources.Load(enemy.M_BasicProperty.M_ModelPath);
-            player.name = enemy.M_BasicProperty.M_Name;
-            InitSet(player, enemySets.GetChild(enemySetIndex++));
-            AddToQue(enemy);
-        }
-        index = 0;
-        battleState = BattleState.prepare;
-        canvas = GameObject.Find("Canvas");
+//        GameObject.Find("Canvas/OperationWindow").SetActive(true);
+        isInit = true;
     }
-    private void InitSet(GameObject _player, Transform set)
+
+
+    public void AddTeammates(string playerName)
     {
-        Instantiate(_player, set);
-        _player.transform.localPosition = Vector3.zero;
-    }
+        Player player = GetComponent<GlobeManager>().GetPlayer(playerName);
+        //实例化
+        teammates[teammatesIndex] = (GameObject)Resources.Load(player.modelUrl);
+        teammates[teammatesIndex] = Instantiate(teammates[teammatesIndex], teammatesSets.GetChild(teammatesIndex));
+        teammates[teammatesIndex].name = playerName;
+        //添加组件
+        PlayerComponent pc = teammates[teammatesIndex].AddComponent<PlayerComponent>();
+        pc.Init(player);
 
-    //增加队友方法
-    public void AddTeamate(string name)
-    {
-        GlobeManager gm = GlobeManager.GetInstance();
-        teammates.Add(gm.GetPlayer(name));
-        count++;
-    }
-    //增加敌人的方法
-    public void AddEnemy(string name)
-    {
-        GlobeManager gm = GlobeManager.GetInstance();
-        enemys.Add(gm.GetPlayer(name));
-        count++;
-    }
-    //加入队列的方法
-    private void AddToQue(Player player)
-    {
-        que[index] = player;
-        MoveFront(index);
-        index++;
-    }
-    //优先队列的实现方法
-    private void MoveFront(int i)
-    {
-        while(i != 0 && que[i].M_BattelProperty.M_Spd > que[i - 1].M_BattelProperty.M_Spd)
-        {
-            Player tmp = que[i];
-            que[i] = que[i - 1];
-            que[i - 1] = tmp;
-        }
-    }
-    private void Start()
-    {
+        //加入战斗队列
+        que[battleCount++] = teammates[teammatesIndex];
 
-    }
-    private void Update()
-    {
-
+        teammatesIndex++;
 
     }
 
+    public void AddEnemys(string playerName)
+    {
+        Player player = GetComponent<GlobeManager>().GetPlayer(playerName);
+        //实例化
+        enemys[enemysIndex] = (GameObject)Resources.Load(player.modelUrl);
+        enemys[enemysIndex].name = playerName;
+        enemys[enemysIndex] = Instantiate(enemys[enemysIndex], enemySets.GetChild(enemysIndex));
+        //添加组件
+        PlayerComponent pc = enemys[enemysIndex].AddComponent<PlayerComponent>();
+        pc.Init(player);
 
+        //加入战斗队列
+        que[battleCount++] = enemys[enemysIndex];
+
+        enemysIndex++;
+    }
+
+    public GameObject GetPlayerTurn()
+    {
+        return que[index];
+    }
 }

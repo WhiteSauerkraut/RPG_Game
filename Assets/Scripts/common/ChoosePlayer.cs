@@ -38,6 +38,8 @@ public class ChoosePlayer : MonoBehaviour
             choose = character;
             if (choose != null)
                 flag = true;
+            else
+                flag = false;
         }
 
     }
