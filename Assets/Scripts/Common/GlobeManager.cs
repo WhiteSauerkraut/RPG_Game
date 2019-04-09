@@ -60,7 +60,7 @@ public class GlobeManager : MonoBehaviour
     }
 
     /**
-     * 根据键值放角色数据
+     * 根据键值存放角色数据
      */
     public void PutPlayer(string key, Player player)
     {

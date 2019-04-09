@@ -34,7 +34,7 @@ public class Player
     }
 
     // 角色释放技能
-    public void ReleaseSkill(Player player, int index)
+    public void ReleaseSkill(int index)
     {
 
     }
@@ -49,6 +49,23 @@ public class Player
     public void Defense()
     {
 
+    }
+
+    // 角色增加技能
+    public void AddSkill(Skill skill)
+    {
+        int i = 0;
+        for(; i < M_Skills.Length; i++)
+        {
+            if(M_Skills[i] == null)
+            {
+                M_Skills[i] = skill;
+            }
+        }
+        if(i == M_Skills.Length)
+        {
+            // 执行UI交互，选择替代技能
+        }
     }
 
     // 穿戴装备

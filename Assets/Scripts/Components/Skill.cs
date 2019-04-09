@@ -4,7 +4,7 @@
  * 描述：组件类——技能类
  **/
 
-public class Skill
+public abstract class Skill
 {
     // 技能名称
     public string M_Name { get; set; }
@@ -15,5 +15,10 @@ public class Skill
     // 技能图标
     public string M_IconPath { get; set; }
 
+    // 技能耗蓝
+    public int M_ConsumeMp { get; set; }
 
+    // 技能使用
+    public abstract void Use(params Player[] players);
+    
 }

@@ -118,7 +118,7 @@ public class SaveManager
     /**
      * 存档不存在时，初始化数据并生成存档文件
      * */
-     private void InitData()
+    private void InitData()
     {
        Player role = new Player();
 
