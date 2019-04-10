@@ -47,8 +47,6 @@ public class NormalAtk : MonoBehaviour,Skill
     {
         StartCoroutine(bm.PhysicalAttack(gameObject,this));
         StartCoroutine(WaitTime(0.5f));
-
-
     }
 
     public void AfterUseSkill()

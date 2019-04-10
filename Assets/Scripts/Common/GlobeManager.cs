@@ -7,7 +7,6 @@ using UnityEngine.UI;
  * 创建日期：3/20
  * 创建人：lyj
  * 描述：全局管理类，用于管理游戏的全局信息
- * 注意：管理类使用的是“懒汉式”的单例模式
  * 更新日期：3/25
  * 更新人：yzy
  * 描述：增加了开始战斗的函数
@@ -33,24 +32,8 @@ public class GlobeManager : MonoBehaviour
     private void Init()
     {
         playersDictionary = new Dictionary<string, Player>();
-        Player mainChracter = new Player();
-        Debug.Log(mainChracter);
-        mainChracter.playerName = "郭靖";
-        mainChracter.atk = 20;
-        mainChracter.hp = 100;
-        mainChracter.modelUrl = "Prefabs/role";
-        mainChracter.skills = new string[]{"NormalAtk","NormalAtk", "NormalAtk", "NormalAtk"};
-
-        Player enemy = new Player();
-        enemy.playerName = "完颜康";
-        enemy.atk = 15;
-        enemy.hp = 80;
-        enemy.modelUrl = "Prefabs/boss";
-        enemy.skills = new string[] { "NormalAtk", "NormalAtk", "NormalAtk", "NormalAtk" };
-
-        PutPlayer("郭靖", mainChracter);
-        PutPlayer("完颜康", enemy);
-
+        SaveManager.GetInstance().Delete();
+        SaveManager.GetInstance().Load();
     }
 
     /**

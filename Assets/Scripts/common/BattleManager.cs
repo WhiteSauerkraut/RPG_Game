@@ -53,7 +53,7 @@ public class BattleManager:MonoBehaviour
     {
         Player player = GetComponent<GlobeManager>().GetPlayer(playerName);
         //实例化
-        teammates[teammatesIndex] = (GameObject)Resources.Load(player.modelUrl);
+        teammates[teammatesIndex] = (GameObject)Resources.Load(player.M_BasicProperty.M_ModelPath);
         teammates[teammatesIndex] = Instantiate(teammates[teammatesIndex], teammatesSets.GetChild(teammatesIndex));
         teammates[teammatesIndex].name = playerName;
         //添加组件
@@ -71,7 +71,7 @@ public class BattleManager:MonoBehaviour
     {
         Player player = GetComponent<GlobeManager>().GetPlayer(playerName);
         //实例化
-        enemys[enemysIndex] = (GameObject)Resources.Load(player.modelUrl);
+        enemys[enemysIndex] = (GameObject)Resources.Load(player.M_BasicProperty.M_ModelPath);
         enemys[enemysIndex].name = playerName;
         enemys[enemysIndex] = Instantiate(enemys[enemysIndex], enemySets.GetChild(enemysIndex));
         //添加组件
@@ -180,5 +180,16 @@ public class BattleManager:MonoBehaviour
         yield return new WaitForSeconds(1f);
         animator.Play("idle");
         Debug.Log("hi");
+    }
+
+    public IEnumerator GainAttack(GameObject player, Skill skill)
+    {
+        Animator animator = player.GetComponentInChildren<Animator>();
+        animator.Play("magicalAttack");
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        //yield return new WaitUntil(() => {return info.IsName("Base Layer.physicalAttack") && info.normalizedTime >= 1.0f; });
+        yield return new WaitForSeconds(3f);
+        animator.Play("idle");
+        skill.SetFlag(true);
     }
 }
