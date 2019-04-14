@@ -59,7 +59,13 @@ public class BattleManager:MonoBehaviour
         //添加组件
         PlayerComponent pc = teammates[teammatesIndex].AddComponent<PlayerComponent>();
         pc.Init(player);
+        teammates[teammatesIndex].GetComponent<PlayerComponent>().camp = Camp.teammate;
 
+        //添加UI
+        GameObject view = (GameObject)Resources.Load("Prefabs/View");
+        view = Instantiate(view, canvas.transform.Find("ViewWindow/Teammates"));
+        view.GetComponent<ViewScript>().Init(teammates[teammatesIndex]);
+        view.transform.localPosition = new Vector2(0, 160 * teammatesIndex);
         //加入战斗队列
         que[battleCount++] = teammates[teammatesIndex];
 
@@ -77,6 +83,13 @@ public class BattleManager:MonoBehaviour
         //添加组件
         PlayerComponent pc = enemys[enemysIndex].AddComponent<PlayerComponent>();
         pc.Init(player);
+        enemys[enemysIndex].GetComponent<PlayerComponent>().camp = Camp.enemy;
+
+        //添加UI
+        GameObject view = (GameObject)Resources.Load("Prefabs/View");
+        view = Instantiate(view, canvas.transform.Find("ViewWindow/Enemys"));
+        view.GetComponent<ViewScript>().Init(enemys[enemysIndex]);
+        view.transform.localPosition = new Vector2(0, 160 * enemysIndex);
 
         //加入战斗队列
         que[battleCount++] = enemys[enemysIndex];
@@ -112,6 +125,7 @@ public class BattleManager:MonoBehaviour
         {
             canvas.transform.GetChild(i).gameObject.SetActive(false);
         }
+        canvas.transform.Find("ViewWindow").gameObject.SetActive(true);
 
         skill.SetFlag(true);
     }
@@ -179,10 +193,9 @@ public class BattleManager:MonoBehaviour
         //yield return new WaitUntil(() => { return info.IsName("Base Layer.defend") &&info.normalizedTime >= 1.0f; });
         yield return new WaitForSeconds(1f);
         animator.Play("idle");
-        Debug.Log("hi");
     }
 
-    public IEnumerator GainAttack(GameObject player, Skill skill)
+    public IEnumerator MagicAttack(GameObject player, Skill skill)
     {
         Animator animator = player.GetComponentInChildren<Animator>();
         animator.Play("magicalAttack");
@@ -191,5 +204,23 @@ public class BattleManager:MonoBehaviour
         yield return new WaitForSeconds(3f);
         animator.Play("idle");
         skill.SetFlag(true);
+    }
+
+    public void NextTurn()
+    {
+        index = (index + 1) % battleCount;
+        GameObject player = GetPlayerTurn();
+        if (player.GetComponent<PlayerComponent>().camp == Camp.enemy)
+        {
+            GameObject.Find("GlobalManager").GetComponent<Fight>().AutoUseSkill();
+        }
+        else
+        {
+            canvas.transform.Find("OperationWindow").gameObject.SetActive(true);
+        }
+    }
+    public GameObject GetNextPlayer()
+    {
+        return que[(index + 1) % battleCount];
     }
 }

@@ -40,6 +40,7 @@ public class NormalAtk : MonoBehaviour,Skill
 
     public void BeforeUseSkill()
     {
+        Debug.Log(goals[0]);
         Transform goal = goals[0].transform.parent.Find("atkPosition");
         StartCoroutine(bm.MoveTo(gameObject, goal, this));
     }
@@ -47,6 +48,7 @@ public class NormalAtk : MonoBehaviour,Skill
     {
         StartCoroutine(bm.PhysicalAttack(gameObject,this));
         StartCoroutine(WaitTime(0.5f));
+
     }
 
     public void AfterUseSkill()
@@ -69,5 +71,20 @@ public class NormalAtk : MonoBehaviour,Skill
     {
         yield return new WaitForSeconds(f);
         StartCoroutine(bm.Defend(goals[0], this));
+        foreach (GameObject player in goals)
+        {
+            Debug.Log("hello!");
+            player.GetComponent<PlayerComponent>().beDamaged(this.gameObject.GetComponent<PlayerComponent>().M_BattelProperty.M_Atk);
+        }
+    }
+
+    public int GetGoalsNum()
+    {
+        return goalNum;
+    }
+
+    public void SetGoals(GameObject[] goals)
+    {
+        this.goals = goals;
     }
 }

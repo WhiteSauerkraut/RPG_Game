@@ -5,3 +5,9 @@ public enum BattleState
     choose,
     chooseSkill
 }
+
+public enum Camp
+{
+    teammate,
+    enemy
+}

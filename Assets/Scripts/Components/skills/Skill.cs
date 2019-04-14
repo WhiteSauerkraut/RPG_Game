@@ -1,4 +1,5 @@
-﻿/**
+﻿using UnityEngine;
+/**
  * 创建日期：3/18
  * 创建人：lyj
  * 描述：组件类——技能类
@@ -26,5 +27,9 @@ public interface Skill
     void SetFlag(bool flag);
 
     bool GetFlag();
+
+    int GetGoalsNum();
+
+    void SetGoals(GameObject[] goals);
 
 }

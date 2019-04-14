@@ -15,7 +15,7 @@ public class GainSkill : MonoBehaviour,Skill
     public string iconUrl;
     public bool flag;
 
-    public int goalNum = 1;
+    public int goalNum = 0;
     public GameObject[] goals;
 
     BattleManager bm;
@@ -71,7 +71,7 @@ public class GainSkill : MonoBehaviour,Skill
 
     public void UseSkill()
     {
-        StartCoroutine(bm.GainAttack(gameObject, this));
+        StartCoroutine(bm.MagicAttack(gameObject, this));
         //StartCoroutine(WaitTime(0.5f));
     }
 
@@ -79,5 +79,15 @@ public class GainSkill : MonoBehaviour,Skill
     {
         yield return new WaitForSeconds(f);
         StartCoroutine(bm.Defend(goals[0], this));
+    }
+
+    public int GetGoalsNum()
+    {
+        return goalNum;
+    }
+
+    public void SetGoals(GameObject[] goals)
+    {
+        this.goals = goals;
     }
 }

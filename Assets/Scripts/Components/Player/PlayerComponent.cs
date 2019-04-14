@@ -26,5 +26,10 @@ public class PlayerComponent:MonoBehaviour
             UnityEngineInternal.APIUpdaterRuntimeServices.AddComponent(this.gameObject, "Assets/Scripts/Player/Player.cs (20,13)", skill);
         }
     }
+    public Camp camp;
 
+    public void beDamaged(int damage)
+    {
+        M_BattelProperty.M_CurrentHp -= damage;
+    }
 }
