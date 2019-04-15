@@ -50,10 +50,12 @@ public class MainUIMannager : MonoBehaviour
             {
                 gameObject.SetActive(true);
             }
-            else
+            foreach(GameObject obj in interfaces)
             {
-                gameObject.SetActive(false);
-
+                if(obj.transform != gameObject.transform)
+                {
+                    obj.SetActive(false);
+                }
             }
         });
     }

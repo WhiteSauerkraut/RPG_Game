@@ -102,6 +102,7 @@
      <Compile Include="Assets\Scripts\UI\main\chooseWindow\choose.cs" />
      <Compile Include="Assets\Scripts\UI\main\MenuUI\MainUIMannager.cs" />
      <Compile Include="Assets\Scripts\UI\main\MenuUI\MainUIShowControl.cs" />
+     <Compile Include="Assets\Scripts\UI\main\MenuUI\Setting\SettingUIManager.cs" />
      <Compile Include="Assets\Scripts\UI\main\StateManager.cs" />
      <Compile Include="Assets\Scripts\UI\main\talkWindow\TalkManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
