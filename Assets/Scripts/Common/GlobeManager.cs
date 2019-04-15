@@ -17,13 +17,26 @@ public class GlobeManager : MonoBehaviour
 
     public Dictionary<string, Player> playersDictionary;
 
+    public SaveData M_SaveData { get; set; }
+
+    private static bool isInit = false;
+
+
     /**
      * 加载到下一场景
      */
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-        Init();
+        if (GameObject.FindGameObjectsWithTag("Global").Length > 1)
+            Destroy(this.gameObject);
+        else
+            DontDestroyOnLoad(this.gameObject);
+
+        if(!isInit)
+        {
+            Init();
+            isInit = true;
+        }
     }
 
     /**
@@ -32,8 +45,8 @@ public class GlobeManager : MonoBehaviour
     private void Init()
     {
         playersDictionary = new Dictionary<string, Player>();
-        SaveManager.GetInstance().Delete();
-        SaveManager.GetInstance().Load();
+        M_SaveData = new SaveData();
+        SaveManager.GetInstance().InitData();
     }
 
     /**
@@ -41,7 +54,10 @@ public class GlobeManager : MonoBehaviour
      */
     public Player GetPlayer(string key)
     {
-        return playersDictionary[key];
+        if (playersDictionary.ContainsKey(key))
+            return playersDictionary[key];
+        else
+            return null;
     }
 
     /**
@@ -61,7 +77,9 @@ public class GlobeManager : MonoBehaviour
         GetComponent<BattleManager>().isInit = false;
         //加载场景
         StartCoroutine(LoadScene(teammates, enemys, index));
-
+        // 存储当前场景信息
+        SaveAssist saveAssist = GameObject.Find("GM").GetComponent<SaveAssist>();
+        saveAssist.SaveGameDataFromScene();
     }
 
     //异步加载场景

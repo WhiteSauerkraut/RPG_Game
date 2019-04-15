@@ -17,6 +17,9 @@ public class SaveManager
     // 存储人物信息目录
     private string savePlayerPath = Application.persistentDataPath + "/Save/Player";
 
+    // 存储游戏数据
+    private string saveGameDataPath = Application.persistentDataPath + "/Save/GameData";
+
     private static SaveManager _instance;
 
     private SaveManager() { }
@@ -36,7 +39,11 @@ public class SaveManager
     public void Save()
     {
         Debug.Log("Save 调用.......");
-        SavePlayers();
+
+        SaveAssist saveAssist = GameObject.Find("GM").GetComponent<SaveAssist>();
+        saveAssist.SaveGameDataFromScene();
+        SavePlayersToFile();
+        SaveGameDataToFile();
     }
 
     /*
@@ -47,11 +54,15 @@ public class SaveManager
         Debug.Log("Load 调用.......");
         if (!SaveHelper.IsDirectoryExists(savePlayerPath))
         {
-            Debug.Log("初始化数据.......");
             InitData();
             Save();
         }
-        LoadPlayers();
+
+        SaveAssist saveAssist = GameObject.Find("GM").GetComponent<SaveAssist>();
+
+        LoadPlayersFromFile();
+        LoadGameDataFromFile();
+        saveAssist.LoadGameDataToScene();
     }
 
     /**
@@ -63,10 +74,38 @@ public class SaveManager
         SaveHelper.DeleteFolder(savePath);
     }
 
+    /**
+     * 存储游戏数据信息
+     * */
+    public void SaveGameDataToFile()
+    {
+        if (!SaveHelper.IsDirectoryExists(saveGameDataPath))
+        {
+            SaveHelper.CreateDirectory(saveGameDataPath);
+        }
+        string fileName = saveGameDataPath + "/" +  "GameData.sav";
+        SaveData saveData = GameObject.Find("GM").GetComponent<GlobeManager>().M_SaveData;
+        SaveHelper.SetData(fileName, saveData);
+    }
+
+    /**
+     * 从文件读取游戏数据信息
+     * */
+    public void LoadGameDataFromFile()
+    {
+        DirectoryInfo dir = new DirectoryInfo(saveGameDataPath);
+        FileInfo[] files = dir.GetFiles();
+        if(files.Length > 0)
+        {
+            SaveData saveData = (SaveData)SaveHelper.GetData(files[0].FullName, typeof(SaveData));
+            GameObject.Find("GM").GetComponent<GlobeManager>().M_SaveData = saveData;
+        }          
+    }
+
     /*
      * 存储人物信息
      */
-    private void SavePlayer(Player player)
+    private void SavePlayerToFile(Player player)
     {
         string fileName = savePlayerPath + "/" + player.M_BasicProperty.M_Name + ".sav";
         SaveHelper.SetData(fileName, player);
@@ -75,16 +114,16 @@ public class SaveManager
     /*
      * 读取人物信息
      */
-    private Player LoadPlayer(string fileName)
+    private Player LoadPlayerFromFile(string fileName)
     {
         Player player = (Player)SaveHelper.GetData(fileName, typeof(Player));
         return player;
     }
 
     /*
-     * 存储全部角色的信息
+     * 存储全部角色的信息到文件
      */
-    private void SavePlayers()
+    private void SavePlayersToFile()
     {
         if (!SaveHelper.IsDirectoryExists(savePlayerPath))
         {
@@ -94,14 +133,14 @@ public class SaveManager
         Dictionary<string, Player> players = GameObject.Find("GM").GetComponent<GlobeManager>().playersDictionary;
         foreach (string key in players.Keys)
         {
-            SavePlayer(players[key]);
+            SavePlayerToFile(players[key]);
         }
     }
 
     /**
-     * 加载全部角色的信息
+     * 从文件加载全部角色的信息
      */
-    private void LoadPlayers()
+    private void LoadPlayersFromFile()
     {
         DirectoryInfo dir = new DirectoryInfo(savePlayerPath);
         FileInfo[] files = dir.GetFiles();
@@ -110,7 +149,7 @@ public class SaveManager
 
         foreach (FileInfo file in files)
         {
-            Player player = LoadPlayer(file.FullName);
+            Player player = LoadPlayerFromFile(file.FullName);
             string key = Path.GetFileNameWithoutExtension(file.Name);
             players[key] = player;
         }
@@ -119,8 +158,10 @@ public class SaveManager
     /**
      * 存档不存在时，初始化数据并生成存档文件
      * */
-    private void InitData()
+    public void InitData()
     {
+        Debug.Log("初始化数据.......");
+
         Player role = new Player();
 
         role.M_BasicProperty.M_IconPath = "";

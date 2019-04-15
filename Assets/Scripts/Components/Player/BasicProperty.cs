@@ -3,7 +3,7 @@
  * 创建人：lyj
  * 描述：组件类——基础属性
  * */
-
+using UnityEngine;
 
 public class BasicProperty
 {
@@ -27,4 +27,12 @@ public class BasicProperty
 
     // 种族
     public Race M_Race { get; set; }
+
+    // 人物位置
+    public MyTransform M_Transform;
+
+    public BasicProperty()
+    {
+        M_Transform = new MyTransform();
+    }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class walkControl : MonoBehaviour
+public class WalkControl : MonoBehaviour
 {
     CharacterController player;
     Animator animator;
@@ -14,6 +14,7 @@ public class walkControl : MonoBehaviour
     public float gravity = 9.8f;
 
     PlayerAttribute playerAttribute;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -110,4 +111,5 @@ public class walkControl : MonoBehaviour
             player.Move(moveDirection * Time.deltaTime);
         }
     }
+
 }
