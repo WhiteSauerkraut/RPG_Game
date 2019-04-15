@@ -20,4 +20,13 @@ public class ShowWindows : MonoBehaviour
 
         skillWindow.SetActive(true);
     }
+
+    public void ShowPropWindow()
+    {
+        BattleManager bm = GameObject.Find("GM").GetComponent<BattleManager>();
+        GameObject propWindow = transform.parent.Find("PropWindow").gameObject;
+        GameObject player = bm.GetPlayerTurn();
+
+        propWindow.SetActive(true);
+    }
 }

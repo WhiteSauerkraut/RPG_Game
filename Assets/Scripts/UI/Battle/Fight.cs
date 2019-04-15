@@ -96,4 +96,9 @@ public class Fight : MonoBehaviour
             canvas.transform.Find("OperationWindow").gameObject.SetActive(true);
         bm.NextTurn();
     }
+
+    public void Escape()
+    {
+        GameObject.Find("GM").GetComponent<SaveAssist>().LoadGameDataToScene();
+    }
 }

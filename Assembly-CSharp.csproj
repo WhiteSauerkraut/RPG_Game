@@ -96,7 +96,6 @@
      <Compile Include="Assets\Scripts\techtest\InitTransform.cs" />
      <Compile Include="Assets\Scripts\techtest\SaveTest.cs" />
      <Compile Include="Assets\Scripts\techtest\TestSkill.cs" />
-     <Compile Include="Assets\Scripts\UI\Battle\EscapeButtonClick.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\Fight.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\ShowWindows.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\ViewScript.cs" />
