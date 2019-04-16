@@ -62,15 +62,32 @@
      <Compile Include="Assets\Scripts\Common\BattleManager.cs" />
      <Compile Include="Assets\Scripts\Common\ChoosePlayer.cs" />
      <Compile Include="Assets\Scripts\Common\GlobeManager.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Inventroy\BattleKnapscak.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Inventroy\CharacterPanel.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Inventroy\Inventroy.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Inventroy\Knapscak.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Inventroy\TaskInventroy.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Inventroy\Vendor.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\InventroyManager.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Slot\BattleKnapscakSlot.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Slot\ConsumableSlot.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Slot\EquipmentSlot.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Slot\Slot.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\Slot\VendorSlot.cs" />
+     <Compile Include="Assets\Scripts\Common\InventroyManager\ToolTip.cs" />
      <Compile Include="Assets\Scripts\Common\Save\SaveAssist.cs" />
      <Compile Include="Assets\Scripts\Common\Save\SaveComponent.cs" />
      <Compile Include="Assets\Scripts\Common\Save\SaveHelper.cs" />
      <Compile Include="Assets\Scripts\Common\Save\SaveManager.cs" />
      <Compile Include="Assets\Scripts\Common\StateManager.cs" />
      <Compile Include="Assets\Scripts\Components\Equipment\Equipment.cs" />
-     <Compile Include="Assets\Scripts\Components\Items\Item.cs" />
+     <Compile Include="Assets\Scripts\Components\Items\BagSystemItem\Consumable.cs" />
+     <Compile Include="Assets\Scripts\Components\Items\BagSystemItem\Equipment.cs" />
+     <Compile Include="Assets\Scripts\Components\Items\BagSystemItem\ItemDetail.cs" />
+     <Compile Include="Assets\Scripts\Components\Items\BagSystemItem\ItemUI.cs" />
+     <Compile Include="Assets\Scripts\Components\Items\BagSystemItem\QuestRelated.cs" />
      <Compile Include="Assets\Scripts\Components\Player\BasicProperty.cs" />
-     <Compile Include="Assets\Scripts\Components\Player\BattelProperty.cs" />
+     <Compile Include="Assets\Scripts\Components\Player\BattleProperty.cs" />
      <Compile Include="Assets\Scripts\Components\Player\MyTransform.cs" />
      <Compile Include="Assets\Scripts\Components\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Components\Player\PlayerComponent.cs" />
@@ -79,6 +96,7 @@
      <Compile Include="Assets\Scripts\Components\skills\NormalAtk.cs" />
      <Compile Include="Assets\Scripts\Components\skills\Skill.cs" />
      <Compile Include="Assets\Scripts\Enum\BattleState.cs" />
+     <Compile Include="Assets\Scripts\Enum\EnumHelper.cs" />
      <Compile Include="Assets\Scripts\Enum\EquipmentPart.cs" />
      <Compile Include="Assets\Scripts\Enum\EquipmentRarity.cs" />
      <Compile Include="Assets\Scripts\Enum\Race.cs" />
@@ -94,6 +112,7 @@
      <Compile Include="Assets\Scripts\techtest\devide.cs" />
      <Compile Include="Assets\Scripts\techtest\DontDestory.cs" />
      <Compile Include="Assets\Scripts\techtest\InitTransform.cs" />
+     <Compile Include="Assets\Scripts\techtest\PlayerDetail.cs" />
      <Compile Include="Assets\Scripts\techtest\SaveTest.cs" />
      <Compile Include="Assets\Scripts\techtest\TestSkill.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\Fight.cs" />
@@ -735,6 +754,10 @@
  <Reference Include="System.Xml.Serialization">
  <HintPath>D:/Unity/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{60FF69C5-FB93-DB0D-E4B0-6B9EF11DA4B3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

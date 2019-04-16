@@ -74,7 +74,7 @@ public class NormalAtk : MonoBehaviour,Skill
         foreach (GameObject player in goals)
         {
             Debug.Log("hello!");
-            player.GetComponent<PlayerComponent>().beDamaged(this.gameObject.GetComponent<PlayerComponent>().M_BattelProperty.M_Atk);
+            player.GetComponent<PlayerComponent>().beDamaged(this.gameObject.GetComponent<PlayerComponent>().M_BattleProperty.M_Atk);
         }
     }
 

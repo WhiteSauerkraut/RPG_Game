@@ -171,17 +171,17 @@ public class SaveManager
         role.M_BasicProperty.M_Sex = Sex.Man;
         role.M_BasicProperty.M_Level = 1;
 
-        role.M_BasicProperty.M_Race = Race.Human;
-        role.M_BattelProperty.M_CurrentHp = 100;
-        role.M_BattelProperty.M_CurrentMp = 100;
-        role.M_BattelProperty.M_MaxHp = 100;
-        role.M_BattelProperty.M_MaxHp = 100;
-        role.M_BattelProperty.M_Atk = 10;
-        role.M_BattelProperty.M_Def = 10;
-        role.M_BattelProperty.M_Mgk = 5;
-        role.M_BattelProperty.M_Rgs = 5;
-        role.M_BattelProperty.M_Spd = 10;
-        role.M_BattelProperty.M_State = State.Normal;
+        role.M_BasicProperty.M_Race = Race.Human;     
+        role.M_BattleProperty.M_MaxHp = 100;
+        role.M_BattleProperty.M_MaxMp = 30;
+        role.M_BattleProperty.M_CurrentHp = 100;
+        role.M_BattleProperty.M_CurrentMp = 30;
+        role.M_BattleProperty.M_Atk = 25;
+        role.M_BattleProperty.M_Def = 20;
+        role.M_BattleProperty.M_Mgk = 25;
+        role.M_BattleProperty.M_Rgs = 15;
+        role.M_BattleProperty.M_Spd = 10;
+        role.M_BattleProperty.M_State = State.Normal;
 
         Player boss = new Player();
 
@@ -193,16 +193,16 @@ public class SaveManager
         boss.M_BasicProperty.M_Level = 1;
         boss.M_BasicProperty.M_Race = Race.Tao;
 
-        boss.M_BattelProperty.M_CurrentHp = 100;
-        boss.M_BattelProperty.M_CurrentMp = 100;
-        boss.M_BattelProperty.M_MaxHp = 100;
-        boss.M_BattelProperty.M_MaxHp = 100;
-        boss.M_BattelProperty.M_Atk = 10;
-        boss.M_BattelProperty.M_Def = 10;
-        boss.M_BattelProperty.M_Mgk = 5;
-        boss.M_BattelProperty.M_Rgs = 5;
-        boss.M_BattelProperty.M_Spd = 10;
-        boss.M_BattelProperty.M_State = State.Normal;
+        boss.M_BattleProperty.M_MaxHp = 100;
+        boss.M_BattleProperty.M_MaxMp = 30;
+        boss.M_BattleProperty.M_CurrentHp = 100;
+        boss.M_BattleProperty.M_CurrentMp = 30;
+        boss.M_BattleProperty.M_Atk = 25;
+        boss.M_BattleProperty.M_Def = 15;
+        boss.M_BattleProperty.M_Mgk = 20;
+        boss.M_BattleProperty.M_Rgs = 10;
+        boss.M_BattleProperty.M_Spd = 8;
+        boss.M_BattleProperty.M_State = State.Normal;
 
         GameObject.Find("GM").GetComponent<GlobeManager>().PutPlayer(role.M_BasicProperty.M_Name, role);
         GameObject.Find("GM").GetComponent<GlobeManager>().PutPlayer(boss.M_BasicProperty.M_Name, boss);

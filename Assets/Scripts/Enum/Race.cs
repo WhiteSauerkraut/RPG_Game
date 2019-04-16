@@ -1,20 +1,23 @@
-﻿/**
- * 创建日期：3/15
- * 创建人：lyj
- * 描述：枚举类——种族
- * */
-
-
+﻿using System.ComponentModel;
+/**
+* 创建日期：3/15
+* 创建人：lyj
+* 描述：枚举类——种族
+* */
 public enum Race
 {
-    // 道族
+    [Description("道")]
     Tao,
-    // 魔族
+
+    [Description("魔")]
     Devil,
-    // 佛族
+
+    [Description("佛")]
     Buddha,
-    // 人族
+
+    [Description("人")]
     Human,
-    // 兽族
+
+    [Description("兽")]
     Orcish,
 }

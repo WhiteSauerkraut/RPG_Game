@@ -8,7 +8,7 @@ public class PlayerComponent:MonoBehaviour
 {
     public BasicProperty M_BasicProperty { get; set; }
 
-    public BattelProperty M_BattelProperty { get; set; }
+    public BattleProperty M_BattleProperty { get; set; }
 
     public Equipment[] M_Equipments { get; set; }
 
@@ -17,7 +17,7 @@ public class PlayerComponent:MonoBehaviour
     public void Init(Player player)
     {
         M_BasicProperty = player.M_BasicProperty;
-        M_BattelProperty = player.M_BattelProperty;
+        M_BattleProperty = player.M_BattleProperty;
         M_Equipments = player.M_Equipments;
         M_Skills = player.M_Skills;
         
@@ -30,6 +30,6 @@ public class PlayerComponent:MonoBehaviour
 
     public void beDamaged(int damage)
     {
-        M_BattelProperty.M_CurrentHp -= damage;
+        M_BattleProperty.M_CurrentHp -= damage;
     }
 }
