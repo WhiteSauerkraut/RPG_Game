@@ -9,5 +9,6 @@ public class SaveData
     // 存储当前场景名称
     public string CurSceneName { get; set; }
 
-
+    // 存储角色金币
+    public int Money { get; set; }
 }

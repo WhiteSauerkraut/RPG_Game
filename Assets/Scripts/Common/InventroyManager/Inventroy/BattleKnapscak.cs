@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+
 /// <summary>
 /// 背包类，继承自 存货类Inventroy
 /// </summary>
 public class BattleKnapscak : Inventroy
 {
-    //单例模式
+    
     private static BattleKnapscak _instance;
     public static BattleKnapscak Instance
     {

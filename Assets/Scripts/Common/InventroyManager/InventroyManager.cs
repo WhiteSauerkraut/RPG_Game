@@ -82,9 +82,9 @@ public class InventroyManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 解析Json文件
-    /// </summary>
+    /**
+     * 解析Json文件
+     * */
     public void ParseItemJson() 
     {
         itemList = new List<ItemDetail>();
@@ -200,7 +200,7 @@ public class InventroyManager : MonoBehaviour
     public void SaveInventory()
     {
         Knapscak.Instance.SaveInventory();
-        CharacterPanel.Instance.SaveInventory();
+        EquipmentInventroy.Instance.SaveInventory();
     }
 
     /**
@@ -209,6 +209,6 @@ public class InventroyManager : MonoBehaviour
     public void LoadInventory() 
     {
         Knapscak.Instance.LoadInventory();
-        CharacterPanel.Instance.LoadInventory();
+        EquipmentInventroy.Instance.LoadInventory();
     }
 }

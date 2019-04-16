@@ -11,6 +11,7 @@ public class ConsumableSlot : Slot {
 
     public override void OnPointerDown(PointerEventData eventData)
     {
+        // 右键点击使用消耗品
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             if (transform.childCount > 0)

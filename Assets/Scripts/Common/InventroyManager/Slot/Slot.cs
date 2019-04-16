@@ -67,7 +67,7 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
     }
 
     /**
-     * 监听鼠标离开事件
+     * 监听鼠标移开事件
      * */
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -87,16 +87,33 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
             if (transform.childCount > 0 && InventroyManager.Instance.IsPickedItem == false)
             {
                 ItemUI currentItemUI = transform.GetChild(0).GetComponent<ItemUI>();
-                if (currentItemUI.ItemDetail is Equipment)
+                ItemDetail itemDetail = currentItemUI.ItemDetail;
+
+                // 右键点击装备物品
+                if (itemDetail is Equipment)
                 {
-                    ItemDetail currentItem = currentItemUI.ItemDetail;
+                    EquipmentInventroy.Instance.PutOn(itemDetail);
                     currentItemUI.RemoveItemAmount(1);
                     if (currentItemUI.Amount <= 0)
                     {
                         DestroyImmediate(currentItemUI.gameObject);
                         InventroyManager.Instance.HideToolTip();
                     }
-                    CharacterPanel.Instance.PutOn(currentItem);
+                }
+
+                // 右键点击使用消耗品
+                if (currentItemUI.ItemDetail.m_Type == (ItemDetail.ItemType)System.Enum.Parse(typeof(ItemDetail.ItemType), "Consumable"))
+                {
+                    Consumable e = (Consumable)itemDetail;
+                    Player player = GameObject.Find("GM").GetComponent<GlobeManager>().GetPlayer("郭靖");
+                    player.M_BattleProperty.M_CurrentHp += e.m_Add_Hp;
+                    player.M_BattleProperty.M_CurrentMp += e.m_Add_Mp;
+                    currentItemUI.RemoveItemAmount(1);
+                    if (currentItemUI.Amount <= 0)
+                    {
+                        DestroyImmediate(currentItemUI.gameObject);
+                        InventroyManager.Instance.HideToolTip();
+                    }
                 }
             }
         }
@@ -174,7 +191,7 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
                         }
                     }
                 }
-                // 当前Slot的物品与拾取物品不同
+                // 当前Slot的物品与拾取物品不同，进行交换
                 else
                 {
                     ItemDetail pickedItemTemp = InventroyManager.Instance.PickedItem.ItemDetail;
@@ -191,13 +208,16 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
         // 当前Slot存放为空
         else
         { 
+            // 鼠标拾取有物品，则放置
             if (InventroyManager.Instance.IsPickedItem == true)
             {
+                // 按下ctrl键，单个放置
                 if (Input.GetKey(KeyCode.LeftControl))
                 {
                     this.StoreItem(InventroyManager.Instance.PickedItem.ItemDetail);
                     InventroyManager.Instance.ReduceAmountItem();
                 }
+                // 否则全部放置
                 else
                 {
                     for(int i = 0 ; i<InventroyManager.Instance.PickedItem.Amount ; i++)
@@ -207,6 +227,7 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
                     InventroyManager.Instance.ReduceAmountItem(InventroyManager.Instance.PickedItem.Amount);
                 }
             }
+            // 否则返回
             else
             {
                 return;

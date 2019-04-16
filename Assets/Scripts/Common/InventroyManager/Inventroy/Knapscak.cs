@@ -25,41 +25,41 @@ public class Knapscak : Inventroy {
     /**
      * 更新背包面板
      * */
-    //public void UpdateKnapscakPanel(ItemDetail itemb, ItemUI itembui)
-    //{
-    //    CharacterPanel.Instance.UpdatePropertyText();
-    //    foreach (Slot slot in slotArray)
-    //    {
-    //        if (slot.transform.childCount > 0)
-    //        {
-    //            ItemDetail item = slot.transform.GetChild(0).GetComponent<ItemUI>().ItemDetail;
-    //            if (item.m_Type == (ItemDetail.ItemType)System.Enum.Parse(typeof(ItemDetail.ItemType), "Consumable"))
-    //            {
-    //                ItemUI a = slot.transform.GetChild(0).GetComponent<ItemUI>();
-    //                if (item.m_Id == itemb.m_Id && a.GetAmount() == itembui.GetAmount())
-    //                {
-    //                    foreach (Slot slot1 in BattleKnapscak.Instance.slotArray)
-    //                    {
-    //                        if (slot1.transform.childCount > 0)
-    //                        {
-    //                            ItemDetail item1 = slot1.transform.GetChild(0).GetComponent<ItemUI>().ItemDetail;
-    //                            ItemUI b = slot1.transform.GetChild(0).GetComponent<ItemUI>();
-    //                            if (item1.m_Id == item.m_Id && b.GetAmount() == a.GetAmount())
-    //                            {
-    //                                a.SetAmount(a.GetAmount() - 1);
-    //                                if (a.GetAmount() == 0)
-    //                                {
-    //                                    DestroyImmediate(a.gameObject);
-    //                                    InventroyManager.Instance.HideToolTip();
-    //                                }
-    //                            }
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
+    public void UpdateKnapscakPanel(ItemDetail itemb, ItemUI itembui)
+    {
+        EquipmentInventroy.Instance.UpdatePropertyText();
+        foreach (Slot slot in slotArray)
+        {
+            if (slot.transform.childCount > 0)
+            {
+                ItemDetail item = slot.transform.GetChild(0).GetComponent<ItemUI>().ItemDetail;
+                if (item.m_Type == (ItemDetail.ItemType)System.Enum.Parse(typeof(ItemDetail.ItemType), "Consumable"))
+                {
+                    ItemUI a = slot.transform.GetChild(0).GetComponent<ItemUI>();
+                    if (item.m_Id == itemb.m_Id && a.GetAmount() == itembui.GetAmount())
+                    {
+                        foreach (Slot slot1 in BattleKnapscak.Instance.slotArray)
+                        {
+                            if (slot1.transform.childCount > 0)
+                            {
+                                ItemDetail item1 = slot1.transform.GetChild(0).GetComponent<ItemUI>().ItemDetail;
+                                ItemUI b = slot1.transform.GetChild(0).GetComponent<ItemUI>();
+                                if (item1.m_Id == item.m_Id && b.GetAmount() == a.GetAmount())
+                                {
+                                    a.SetAmount(a.GetAmount() - 1);
+                                    if (a.GetAmount() == 0)
+                                    {
+                                        DestroyImmediate(a.gameObject);
+                                        InventroyManager.Instance.HideToolTip();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 
     public void UpdateKnapscakPanel1()//背包售卖完后
