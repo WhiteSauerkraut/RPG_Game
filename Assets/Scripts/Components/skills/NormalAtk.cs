@@ -40,7 +40,7 @@ public class NormalAtk : MonoBehaviour,Skill
 
     public void BeforeUseSkill()
     {
-        Debug.Log(goals[0]);
+        //Debug.Log(goals[0]);
         Transform goal = goals[0].transform.parent.Find("atkPosition");
         StartCoroutine(bm.MoveTo(gameObject, goal, this));
     }
@@ -73,9 +73,23 @@ public class NormalAtk : MonoBehaviour,Skill
         StartCoroutine(bm.Defend(goals[0], this));
         foreach (GameObject player in goals)
         {
-            Debug.Log("hello!");
+            //Debug.Log("hello!");
             player.GetComponent<PlayerComponent>().beDamaged(this.gameObject.GetComponent<PlayerComponent>().M_BattleProperty.M_Atk);
         }
+
+        PlayerComponent curPlayer = goals[0].GetComponent<PlayerComponent>();
+        Debug.Log(curPlayer.M_BasicProperty.M_Name + " " + curPlayer.M_BattleProperty.M_CurrentHp);
+        if ("郭靖".Equals(curPlayer.M_BasicProperty.M_Name) && curPlayer.M_BattleProperty.M_CurrentHp == 0)
+        {
+            Debug.Log("置标志位为2");
+            BattleManager.isBattleEnd = 2;
+        }
+        else if("完颜康".Equals(curPlayer.M_BasicProperty.M_Name) && curPlayer.M_BattleProperty.M_CurrentHp == 0)
+        {
+            Debug.Log("置标志位为1");
+            BattleManager.isBattleEnd = 1;
+        }
+        BattleManager.CheckIsBattleEnd();
     }
 
     public int GetGoalsNum()

@@ -30,8 +30,14 @@ public class BattleManager:MonoBehaviour
     public int battleCount;
 
     private GameObject canvas;
+
+    // 判断战斗结束标志位(0为初始值，1为胜利，2为失败）
+    public static int isBattleEnd = 0;
+
     public void Init()
     {
+        isBattleEnd = 0;
+
         enemys = new GameObject[4];
         enemysIndex = 0;
         enemySets = GameObject.Find("Sets/Enemys").transform;
@@ -222,5 +228,19 @@ public class BattleManager:MonoBehaviour
     public GameObject GetNextPlayer()
     {
         return que[(index + 1) % battleCount];
+    }
+
+    public static void CheckIsBattleEnd()
+    {
+        if (BattleManager.isBattleEnd == 1)
+        {
+            Debug.Log("You win!");
+            GameObject.Find("GlobalManager").GetComponent<Fight>().Escape();
+        }
+        else if (BattleManager.isBattleEnd == 2)
+        {
+            Debug.Log("You lose!");
+
+        }
     }
 }

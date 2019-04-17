@@ -28,13 +28,11 @@ public class GainSkill : MonoBehaviour,Skill
 
     public void AfterUseSkill()
     {
-        Debug.Log("增强攻击力完成....");
         SetFlag(true);
     }
 
     public void BeforeUseSkill()
     {
-        Debug.Log("准备增强攻击力...");
         SetFlag(true);
     }
 
@@ -71,12 +69,13 @@ public class GainSkill : MonoBehaviour,Skill
     public void UseSkill()
     {
         StartCoroutine(bm.MagicAttack(gameObject, this));
+        StartCoroutine(WaitTime(0.5f));
     }
 
     IEnumerator WaitTime(float f)
     {
         yield return new WaitForSeconds(f);
-        StartCoroutine(bm.Defend(goals[0], this));
+        this.gameObject.GetComponent<PlayerComponent>().M_BattleProperty.M_Atk += 10;
     }
 
     public int GetGoalsNum()

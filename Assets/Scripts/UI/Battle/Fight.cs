@@ -6,6 +6,7 @@ public class Fight : MonoBehaviour
 {
     GameObject canvas;
     BattleManager bm;
+
     private void Awake()
     {
         bm = GameObject.Find("GM").GetComponent<BattleManager>();

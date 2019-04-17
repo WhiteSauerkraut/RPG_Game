@@ -62,8 +62,6 @@ public class EquipmentInventroy : Inventroy
         text_rgs = property.transform.Find("Magicattackdefense/text_Magicattackdefense").GetComponent<Text>();
         text_spd = property.transform.Find("speed/text_speed").GetComponent<Text>();
         text_state = property.transform.Find("state/text_state").GetComponent<Text>();
-
-        InitEquipmentsToGM();
     }
 
     /**
@@ -122,22 +120,6 @@ public class EquipmentInventroy : Inventroy
         Remove((Equipment)item);
         Knapscak.Instance.StoreItem(item);
         Instance.UpdatePropertyText();
-    }
-
-    /**
-     * 同步角色属性到全局类
-     * */
-    private void InitEquipmentsToGM()
-    {
-        // 遍历角色面板中的装备物品槽
-        foreach (EquipmentSlot slot in slotArray)
-        {
-            if (slot.transform.childCount > 0)
-            {
-                Equipment e = (Equipment)slot.transform.GetChild(0).GetComponent<ItemUI>().ItemDetail;
-                Equip(e);
-            }
-        }
     }
 
     /**

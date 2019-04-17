@@ -6,7 +6,7 @@ using System.Collections;
 /// </summary>
 public class BattleKnapscak : Inventroy
 {
-    
+
     private static BattleKnapscak _instance;
     public static BattleKnapscak Instance
     {

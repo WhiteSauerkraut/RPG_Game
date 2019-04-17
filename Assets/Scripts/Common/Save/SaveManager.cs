@@ -44,6 +44,7 @@ public class SaveManager
         saveAssist.SaveGameDataFromScene();
         SavePlayersToFile();
         SaveGameDataToFile();
+        InventroyManager.Instance.SaveInventory();
     }
 
     /*
@@ -63,6 +64,7 @@ public class SaveManager
         LoadPlayersFromFile();
         LoadGameDataFromFile();
         saveAssist.LoadGameDataToScene();
+        InventroyManager.Instance.LoadInventory();
     }
 
     /**
