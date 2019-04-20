@@ -10,7 +10,7 @@ public class PlayerComponent:MonoBehaviour
 
     public BattleProperty M_BattleProperty { get; set; }
 
-    public Equipment[] M_Equipments { get; set; }
+    public string[] M_Equipments { get; set; }
 
     public string[] M_Skills { get; set; }
 

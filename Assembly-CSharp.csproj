@@ -81,7 +81,6 @@
      <Compile Include="Assets\Scripts\Common\Save\SaveManager.cs" />
      <Compile Include="Assets\Scripts\Common\StateManager.cs" />
      <Compile Include="Assets\Scripts\Common\Trade\TradeManager.cs" />
-     <Compile Include="Assets\Scripts\Components\Equipment\Equipment.cs" />
      <Compile Include="Assets\Scripts\Components\Items\Consumable.cs" />
      <Compile Include="Assets\Scripts\Components\Items\Equipment.cs" />
      <Compile Include="Assets\Scripts\Components\Items\ItemDetail.cs" />
@@ -98,7 +97,6 @@
      <Compile Include="Assets\Scripts\Components\skills\Skill.cs" />
      <Compile Include="Assets\Scripts\Enum\BattleState.cs" />
      <Compile Include="Assets\Scripts\Enum\EnumHelper.cs" />
-     <Compile Include="Assets\Scripts\Enum\EquipmentPart.cs" />
      <Compile Include="Assets\Scripts\Enum\EquipmentRarity.cs" />
      <Compile Include="Assets\Scripts\Enum\Race.cs" />
      <Compile Include="Assets\Scripts\Enum\Sex.cs" />

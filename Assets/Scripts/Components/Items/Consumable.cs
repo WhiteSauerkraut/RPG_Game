@@ -12,13 +12,20 @@ public class Consumable : ItemDetail{
         this.m_Add_Mp = mp;
     }
 
-    //对父方法ItemDetail.GetToolTipText()进行重写
     public override string GetToolTipText()
     {
-        string text = base.GetToolTipText();//调用父类的GetToolTipText()方法
-        string newText = string.Format("{0}\n<color=red>加血：{1}HP</color>\n<color=yellow>加魔法：{2}MP</color>", text, m_Add_Hp, m_Add_Mp);
-        return newText;
+        string text = base.GetToolTipText();
+        if(m_Add_Hp != 0)
+        {
+            text += string.Format("\n<color=red>回复生命：{0}HP</color>", m_Add_Hp);
+        }
+        if(m_Add_Mp != 0)
+        {
+            text += string.Format("\n<color=blue>回复法力：{0}MP</color>", m_Add_Mp);
+        }
+        return text;
     }
+
     public override string ToString()
     {
         string str = "";

@@ -42,7 +42,7 @@
     "M_Mgk": 0,
     "M_Rgs": 10,
     "M_Spd": 0,
-    "equipType": "Chest"
+    "equipType": "Body"
   },
   {
     "id": 4,
@@ -61,7 +61,7 @@
     "M_Mgk": 0,
     "M_Rgs": 10,
     "M_Spd": 0,
-    "equipType": "Shoulder"
+    "equipType": "Body"
   },
   {
     "id": 5,
@@ -80,7 +80,7 @@
     "M_Mgk": 0,
     "M_Rgs": 10,
     "M_Spd": 5,
-    "equipType": "Belt"
+    "equipType": "Leg"
   },
   {
     "id": 6,
@@ -99,7 +99,7 @@
     "M_Mgk": 20,
     "M_Rgs": 5,
     "M_Spd": 5,
-    "equipType": "Head"
+    "equipType": "Hand"
   },
   {
     "id": 7,
@@ -118,7 +118,7 @@
     "M_Mgk": 5,
     "M_Rgs": 5,
     "M_Spd": 20,
-    "equipType": "Boots"
+    "equipType": "Foot"
   },
   {
     "id": 8,
@@ -137,7 +137,7 @@
     "M_Mgk": 5,
     "M_Rgs": 5,
     "M_Spd": 5,
-    "equipType": "Bracer"
+    "equipType": "Hand"
   },
   {
     "id": 9,
@@ -156,7 +156,7 @@
     "M_Mgk": 0,
     "M_Rgs": 15,
     "M_Spd": 5,
-    "equipType": "Neck"
+    "equipType": "Body"
   },
   {
     "id": 10,
@@ -232,7 +232,7 @@
     "M_Mgk": 20,
     "M_Rgs": 0,
     "M_Spd": 10,
-    "equipType": "Ring"
+    "equipType": "Jewelry"
   },
   {
     "id": 14,
@@ -251,7 +251,7 @@
     "M_Mgk": 5,
     "M_Rgs": 15,
     "M_Spd": 5,
-    "equipType": "Shoulder"
+    "equipType": "Body"
   },
   {
     "id": 15,
@@ -270,7 +270,7 @@
     "M_Mgk": 15,
     "M_Rgs": 10,
     "M_Spd": 5,
-    "equipType": "Neck"
+    "equipType": "Jewelry"
   },
   {
     "id": 16,

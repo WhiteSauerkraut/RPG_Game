@@ -77,8 +77,6 @@ public class InventroyManager : MonoBehaviour
         {
             isPickedItem = false;
             pickedItem.Hide();
-            GameObject.FindWithTag("KnapscakPanel").GetComponent<Knapscak>().UpdateKnapscakPanel1();
-            GameObject.FindWithTag("taskconsuinventroyPanel").GetComponent<TaskInventroy> ().UpdatetaskconsuinventroyPanel1();
         }
     }
 
@@ -134,7 +132,6 @@ public class InventroyManager : MonoBehaviour
      * */
     public ItemDetail GetItemById(int id) 
     {
-        ParseItemJson();
         foreach (ItemDetail item in itemList)
         {
             if (item.m_Id == id)
@@ -211,4 +208,5 @@ public class InventroyManager : MonoBehaviour
         Knapscak.Instance.LoadInventory();
         EquipmentInventroy.Instance.LoadInventory();
     }
+
 }

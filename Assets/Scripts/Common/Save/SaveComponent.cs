@@ -19,7 +19,6 @@ public class SaveComponent : MonoBehaviour
         {
             isSetPlayerTransfrom = true;
             LoadPlayerTransform();
-            InventroyManager.Instance.LoadInventory();
             Destroy(this.gameObject.GetComponent<SaveComponent>());
         }
     }

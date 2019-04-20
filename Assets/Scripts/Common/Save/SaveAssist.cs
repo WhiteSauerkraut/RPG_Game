@@ -77,6 +77,7 @@ public class SaveAssist : MonoBehaviour
         StartCoroutine(AllowLoadingWindowHide(0.5f, loadingWindow));
         // 重新加载场景后，需要初始化InventroyManager的变量
         InventroyManager.Instance.Start();
+        InventroyManager.Instance.LoadInventory();
     }
 
     IEnumerator AllowLoadingWindowHide(float time, GameObject loadingWindow)

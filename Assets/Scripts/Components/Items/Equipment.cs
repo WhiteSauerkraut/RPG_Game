@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.ComponentModel;
 /// <summary>
 /// 装备类
 /// </summary>
 public class Equipment : ItemDetail{
-    // 最大生命值
+    // 增加生命值
     public int M_MaxHp { get; set; }
-    // 最大法力值
+    // 增加法力值
     public int M_MaxMp { get; set; }
     // 物理攻击力
     public int M_Atk { get; set; }
@@ -18,7 +19,8 @@ public class Equipment : ItemDetail{
     public int M_Rgs { get; set; }
     // 速度
     public int M_Spd { get; set; }
-    public EquipmentType EquipType { get; set; }//装备类型
+    // 装备类型
+    public EquipmentType EquipType { get; set; }
 
     public Equipment(int id, string name, ItemType type, ItemQuality quality, string description, int capaticy, int buyPrice, int sellPrice, string sprite, int M_MaxHp,
         int M_MaxMp, int M_Atk, int M_Def, int M_Mgk, int M_Rgs, int M_Spd, EquipmentType equipType) : base(id, name, type, quality, description, capaticy, buyPrice, sellPrice,sprite) 
@@ -35,63 +37,60 @@ public class Equipment : ItemDetail{
 
     public enum EquipmentType 
     {
-        None,      //不能装备
-        Head,      //头部
-        Neck,      //脖子
-        Ring,       //戒指
-        Leg,        //腿部
-        Chest,    //胸部
-        Bracer,    //护腕
-        Boots,     //鞋子
-        Shoulder,//肩部
-        Belt,       //腰带
-        Hand,    //手部
-        Weapon //武器
+        [Description("无法装备")]
+        None,
+        [Description("头饰")]
+        Head,
+        [Description("上衣")]
+        Body,
+        [Description("下装")]
+        Leg,
+        [Description("鞋子")]
+        Foot,
+        [Description("手套")]
+        Hand,
+        [Description("武器")]
+        Weapon,
+        [Description("饰品")]
+        Jewelry,
     }
 
     //对父方法ItemDetail.GetToolTipText()进行重写
     public override string GetToolTipText()
     {
-        string strEquipType = "";
-        switch (EquipType)
+        string strEquipType = EnumHelper.GetEnumDescription(EquipType);
+        string text = base.GetToolTipText();
+        string color = EnumHelper.GetEnumDescription(m_Quality);
+        text += string.Format("\n<color=white>装备类型：{0}</color>", strEquipType);
+        if (M_MaxHp != 0)
         {
-            case EquipmentType.Head:
-                strEquipType = "头部的";
-                break;
-            case EquipmentType.Neck:
-                strEquipType = "脖子的";
-                break;
-            case EquipmentType.Ring:
-                strEquipType = "戒指";
-                break;
-            case EquipmentType.Leg:
-                strEquipType = "腿部的";
-                break;
-            case EquipmentType.Chest:
-                strEquipType = "胸部的";
-                break;
-            case EquipmentType.Bracer:
-                strEquipType = "护腕";
-                break;
-            case EquipmentType.Boots:
-                strEquipType = "靴子";
-                break;
-            case EquipmentType.Shoulder:
-                strEquipType = "肩部的";
-                break;
-            case EquipmentType.Belt:
-                strEquipType = "腰带";
-                break;
-           case EquipmentType.Hand:
-                strEquipType = "手部";
-                break;
-            case EquipmentType.Weapon:
-                strEquipType = "武器";
-                break;
+            text += string.Format("\n<color={0}>生命：{1}</color>", color, M_MaxHp);
+        }
+        if(M_MaxMp != 0)
+        {
+            text += string.Format("\n<color={0}>法力：{1}</color>", color, M_MaxMp);
+        }
+        if (M_Atk != 0)
+        {
+            text += string.Format("\n<color={0}>物攻：{1}</color>", color, M_Atk);
+        }
+        if (M_Def != 0)
+        {
+            text += string.Format("\n<color={0}>物防：{1}</color>", color, M_Def);
+        }
+        if (M_Mgk != 0)
+        {
+            text += string.Format("\n<color={0}>法攻：{1}</color>", color, M_Mgk);
+        }
+        if (M_Rgs != 0)
+        {
+            text += string.Format("\n<color={0}>法防：{1}</color>", color, M_Rgs);
+        }
+        if (M_Spd != 0)
+        {
+            text += string.Format("\n<color={0}>速度：{1}</color>", color, M_Spd);
         }
 
-        string text = base.GetToolTipText();//调用父类的GetToolTipText()方法
-        string newText = string.Format("{0}\n<color=green>生命：{1}</color>\n<color=yellow>法力：{2}</color>\n<color=white>物攻：{3}</color>\n<color=blue>物防：{4}</color>\n<color=red>法攻：{5}</color>\n<color=purple>法防：{6}</color>\n<color=orange>速度：{7}</color>\n<color=brown>装备类型：{8}</color>", text, M_MaxHp, M_MaxMp, M_Atk, M_Def, M_Mgk, M_Rgs, M_Spd, strEquipType);
-        return newText;
+        return text;
     }
 }

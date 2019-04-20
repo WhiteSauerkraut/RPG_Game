@@ -38,6 +38,7 @@ public class ToolTip : MonoBehaviour {
         this.contentText.text = text;
         this.targetAlpha = 1;
     }
+
     //提示框的隐藏方法
     public void Hide() 
     {

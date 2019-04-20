@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.ComponentModel;
 
 /// <summary>
 /// 物品基类
@@ -14,13 +15,12 @@ public class ItemDetail{
     public int m_Capacity { get; set; }//容量
     public int m_BuyPrice { get; set; }
     public int m_SellPrice { get; set; }
-    public string m_IconUrl { get; set; }//用于后期查找UI精灵路径
+    public string m_IconUrl { get; set; }
 
     public ItemDetail() 
     {
         this.m_Id = -1;//表示这是一个空的物品类
     }
-
 
     public ItemDetail(int id,string name,ItemType type,ItemQuality quality,string description,int capaticy,int buyPrice,int sellPrice,string m_IconUrl)
     {
@@ -44,20 +44,29 @@ public class ItemDetail{
         Equipment,//装备
         QuestRelated  //任务物品
     }
+
     /// <summary>
     /// 品质
     /// </summary>
     public enum ItemQuality
     {
+        [Description("white")]
         Common,//一般的
+        [Description("lime")]
         Uncommon,//不寻常的
+        [Description("navy")]
         Rare,//稀有的
+        [Description("magenta")]
         Epic,//史诗级的
+        [Description("orange")]
         Legendary,//传奇的
+        [Description("red")]
         Artifact//手工的
     }
 
-    //得到提示框应该显示的内容
+    /**
+     * 得到提示框应该显示的内容
+     * */
     public virtual string GetToolTipText() 
     {
         string strItemType = "";
@@ -74,52 +83,15 @@ public class ItemDetail{
                 break;
         }
 
-        string strItemQuality = "";
-        switch (m_Quality)
-        {
-            case ItemQuality.Common:
-                strItemQuality = "一般的";
-                break;
-            case ItemQuality.Uncommon:
-                strItemQuality = "不寻常的";
-                break;
-            case ItemQuality.Rare:
-                strItemQuality = "稀有的";
-                break;
-            case ItemQuality.Epic:
-                strItemQuality = "史诗级的";
-                break;
-            case ItemQuality.Legendary:
-                strItemQuality = "传奇的";
-                break;
-            case ItemQuality.Artifact:
-                strItemQuality = "手工的";
-                break;
-        }
-
-        string color = ""; //用于设置提示框各个不同内容的颜色
-        switch (m_Quality)
-        {
-            case ItemQuality.Common:
-                color = "white";//白色
-                break;
-            case ItemQuality.Uncommon:
-                color = "lime";//绿黄色
-                break;
-            case ItemQuality.Rare:
-                color = "navy";//深蓝色
-                break;
-            case ItemQuality.Epic:
-                color = "magenta";//洋红色
-                break;
-            case ItemQuality.Legendary:
-                color = "orange";//橙黄色
-                break;
-            case ItemQuality.Artifact:
-                color = "red";//红色
-                break;
-        }
-        string text = string.Format("<color={0}>{1}</color>\n<color=yellow><size=10>介绍：{2}</size></color>\n<color=red><size=12>容量：{3}</size></color>\n<color=green><size=12>物品类型：{4}</size></color>\n<color=blue><size=12>物品质量：{5}</size></color>\n<color=orange>购买价格$：{6}</color>\n<color=red>出售价格$：{7}</color>", color, m_Name, m_Description, m_Capacity, strItemType, strItemQuality, m_BuyPrice, m_SellPrice);
+        string color = EnumHelper.GetEnumDescription(m_Quality);
+        
+        string text = string.Format("<color={0}>{1}</color>\n" +
+            "<color=white>介绍：{2}</color>\n" +
+            "<color=white>容量：{3}</color>\n" +
+            "<color=white>物品类型：{4}</color>\n" +
+            "<color=white>购买价格$：{5}</color>\n" +
+            "<color=white>出售价格$：{6}</color>", 
+            color, m_Name, m_Description, m_Capacity, strItemType, m_BuyPrice, m_SellPrice);
         return text;
     }
 }

@@ -13,7 +13,7 @@ public class Player
     public BattleProperty M_BattleProperty { get; set; }
 
     // 角色装备
-    public Equipment[] M_Equipments { get; set; }
+    public string[] M_Equipments { get; set; }
 
     // 角色技能
     public string[] M_Skills { get; set; }
@@ -23,7 +23,7 @@ public class Player
     {
         M_BasicProperty = new BasicProperty();
         M_BattleProperty = new BattleProperty();
-        M_Equipments = new Equipment[11];
+        M_Equipments = new string[11];
         M_Skills = new string[4];
     }
 }

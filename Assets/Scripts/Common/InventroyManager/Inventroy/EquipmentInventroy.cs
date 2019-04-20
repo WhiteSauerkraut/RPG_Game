@@ -65,6 +65,14 @@ public class EquipmentInventroy : Inventroy
     }
 
     /**
+     * 设置角色面板对象
+     * */
+    public void SetPlayer(Player player)
+    {
+        this.player = player;
+    }
+
+    /**
      * 更新角色属性显示
      * */
     public void UpdatePropertyText()
