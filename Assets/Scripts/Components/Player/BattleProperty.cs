@@ -6,6 +6,12 @@
 
 public class BattleProperty
 {
+    // 最大生命值
+    public int M_MaxHp { get; set; }
+
+    // 最大法力值
+    public int M_MaxMp { get; set; }
+
     // 当前生命值
     private int m_CurrentHp;
     public int M_CurrentHp
@@ -13,7 +19,7 @@ public class BattleProperty
         get { return m_CurrentHp; }
         set
         {
-            if(value >= 0)
+            if (value >= 0)
             {
                 m_CurrentHp = value > M_MaxHp ? M_MaxHp : value;
             }
@@ -41,12 +47,6 @@ public class BattleProperty
             }
         }
     }
-
-    // 最大生命值
-    public int M_MaxHp { get; set; }
-
-    // 最大法力值
-    public int M_MaxMp { get; set; }
 
     // 物理攻击力
     public int M_Atk { get; set; }

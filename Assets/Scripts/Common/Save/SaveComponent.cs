@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * 创建日期：4/15
  * 创建人：lyj
- * 描述：临时组件类，添加到新场景对象并设置角色位置
+ * 描述：临时组件类，添加到新场景对象并设置角色位置、背包
  **/
 
 public class SaveComponent : MonoBehaviour
@@ -19,6 +19,7 @@ public class SaveComponent : MonoBehaviour
         {
             isSetPlayerTransfrom = true;
             LoadPlayerTransform();
+            InventroyManager.Instance.LoadInventory();
             Destroy(this.gameObject.GetComponent<SaveComponent>());
         }
     }

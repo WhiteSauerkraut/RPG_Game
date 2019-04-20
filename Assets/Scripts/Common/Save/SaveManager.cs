@@ -64,7 +64,6 @@ public class SaveManager
         LoadPlayersFromFile();
         LoadGameDataFromFile();
         saveAssist.LoadGameDataToScene();
-        InventroyManager.Instance.LoadInventory();
     }
 
     /**

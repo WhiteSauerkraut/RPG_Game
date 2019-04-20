@@ -8,11 +8,10 @@ public class Knapscak : Inventroy {
  
     private static Knapscak _instance;
     public static Knapscak Instance {
-        get {
-            if (_instance == null)
-            {
+        get
+        {
+            if(_instance == null)
                 _instance = GameObject.Find("Canvas").transform.Find("MenuUI/Interfaces/Bag_Interface/bagslot").GetComponent<Knapscak>();
-            }
             return _instance;
         }
     }

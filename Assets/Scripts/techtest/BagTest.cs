@@ -18,5 +18,25 @@ public class BagTest : MonoBehaviour
             int id = Random.Range(1, 19);
             Knapscak.Instance.StoreItem(id);
         }
-	}
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            InventroyManager.Instance.SaveInventory();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            InventroyManager.Instance.LoadInventory();
+
+        }
+
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            SaveManager.GetInstance().Save();
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SaveManager.GetInstance().Load();
+        }
+    }
 }

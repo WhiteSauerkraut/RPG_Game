@@ -48,11 +48,11 @@ public class InventroyManager : MonoBehaviour
         ParseItemJson();
     }
 
-    void Start() 
+    public void Start() 
     {    
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        toolTip = canvas.transform.Find("MenuUI/ToolTip").GetComponent<ToolTip>();
-        pickedItem = canvas.transform.Find("PickedItem").GetComponent<ItemUI>();
+        toolTip = canvas.transform.Find("ItemUI/ToolTip").GetComponent<ToolTip>();
+        pickedItem = canvas.transform.Find("ItemUI/PickedItem").GetComponent<ItemUI>();
         pickedItem.Hide();
     }
 

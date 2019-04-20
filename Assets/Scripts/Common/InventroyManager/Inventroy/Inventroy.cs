@@ -142,6 +142,8 @@ public class Inventroy : MonoBehaviour
                 int id = int.Parse(temp[0]);
                 ItemDetail item = InventroyManager.Instance.GetItemById(id);
                 int amount = int.Parse(temp[1]);
+                if(slotArray.Length == 0)
+                    this.Start();
                 for (int j = 0; j < amount; j++)
                 {
                     slotArray[i].StoreItem(item);

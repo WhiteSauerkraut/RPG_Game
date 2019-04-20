@@ -35,14 +35,6 @@ public class SaveAssist : MonoBehaviour
     }
 
     /**
-    * 读取并更新人物位置(需调用新场景的对象更新)
-    * */
-    private void LoadPlayerTransform()
-    {
-        GameObject.Find("Directional Light").AddComponent<SaveComponent>();
-    }
-
-    /**
      * 存储场景中的游戏数据
      * */
     public void SaveGameDataFromScene()
@@ -64,33 +56,32 @@ public class SaveAssist : MonoBehaviour
     }
 
     /**
-     * 异步加载场景
+     * 异步加载场景跟存储的人物位置
      * */
     IEnumerator LoadScene(string sceneName)
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
-        yield return new WaitForEndOfFrame();     
-        async.allowSceneActivation = false;
-        StartCoroutine(AllowSceneActivation(1f, async));    
+        yield return new WaitForEndOfFrame();
         while (!async.isDone)
         {
             yield return null;
         }
         GameObject loadingWindow = GameObject.Find("Canvas").transform.Find("LoadingWindow").gameObject;
         loadingWindow.SetActive(true);
-        loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress / 0.9f;
-        LoadPlayerTransform();
-        while(GameObject.Find("Directional Light").GetComponent<SaveComponent>() != null)
+        GameObject player = GameObject.Find("郭靖");
+        player.AddComponent<SaveComponent>();
+        while (player.GetComponent<SaveComponent>() != null)
         {
             yield return null;
         }
-        yield return new WaitForSeconds(0.5f);
-        loadingWindow.SetActive(false);
+        StartCoroutine(AllowLoadingWindowHide(0.5f, loadingWindow));
+        // 重新加载场景后，需要初始化InventroyManager的变量
+        InventroyManager.Instance.Start();
     }
 
-    IEnumerator AllowSceneActivation(float time, AsyncOperation async)
+    IEnumerator AllowLoadingWindowHide(float time, GameObject loadingWindow)
     {
         yield return new WaitForSeconds(time);
-        async.allowSceneActivation = true;
+        loadingWindow.SetActive(false);
     }
 }
