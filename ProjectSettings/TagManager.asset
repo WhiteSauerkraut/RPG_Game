@@ -9,6 +9,8 @@ TagManager:
   - NPC
   - character
   - Global
+  - KnapscakPanel
+  - Canvas
   layers:
   - Default
   - TransparentFX

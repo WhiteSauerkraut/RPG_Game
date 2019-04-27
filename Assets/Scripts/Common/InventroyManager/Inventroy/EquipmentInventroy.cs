@@ -106,6 +106,8 @@ public class EquipmentInventroy : Inventroy
                 {
                     ItemUI currentItemUI = equipmentSlot.transform.GetChild(0).GetComponent<ItemUI>();
                     ItemDetail exitItem = currentItemUI.ItemDetail;
+                    Remove((Equipment)exitItem);
+                    Equip((Equipment)item);
                     currentItemUI.SetItem(item, 1);
                     Knapscak.Instance.StoreItem(exitItem);
                 }

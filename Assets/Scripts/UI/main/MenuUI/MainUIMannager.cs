@@ -34,10 +34,7 @@ public class MainUIMannager : MonoBehaviour
         interfaces[3] = transform.Find("Interfaces/Skill_Interface").gameObject;
         interfaces[4] = transform.Find("Interfaces/Setting_Interface").gameObject;
 
-        for (int i = 0; i < 5; i++)
-        {
-            SetClickListener(menuButtons[i], interfaces[i]);
-        }
+        SetClickListener();
     }
 
     // Start is called before the first frame update
@@ -46,21 +43,49 @@ public class MainUIMannager : MonoBehaviour
         HidePanels();
     }
 
-    void SetClickListener(Button button, GameObject gameObject)
+    void SetClickListener()
     {
-        button.onClick.AddListener(delegate ()
+        menuButtons[0].onClick.AddListener(delegate ()
         {
-            foreach(GameObject obj in interfaces)
-            {
-                if(obj.transform != gameObject.transform)
-                {
-                    Hide(obj);
-                }
-                else
-                {
-                    Show(obj);
-                }
-            }
+            Hide(interfaces[1]);
+            Hide(interfaces[3]);
+            Hide(interfaces[4]);
+            Show(interfaces[0]);
+        });
+
+        menuButtons[1].onClick.AddListener(delegate ()
+        {
+            Hide(interfaces[0]);
+            Hide(interfaces[2]);
+            Hide(interfaces[3]);
+            Hide(interfaces[4]);
+            Show(interfaces[1]);
+        });
+
+        menuButtons[2].onClick.AddListener(delegate ()
+        {
+            Hide(interfaces[1]);
+            Hide(interfaces[3]);
+            Hide(interfaces[4]);
+            Show(interfaces[2]);
+        });
+
+        menuButtons[3].onClick.AddListener(delegate ()
+        {
+            Hide(interfaces[0]);
+            Hide(interfaces[1]);
+            Hide(interfaces[2]);
+            Hide(interfaces[4]);
+            Show(interfaces[3]);
+        });
+
+        menuButtons[4].onClick.AddListener(delegate ()
+        {
+            Hide(interfaces[0]);
+            Hide(interfaces[1]);
+            Hide(interfaces[2]);
+            Hide(interfaces[3]);
+            Show(interfaces[4]);
         });
     }
 

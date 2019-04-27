@@ -10,12 +10,14 @@ using UnityEngine;
 
 public class MainUIShowControl : MonoBehaviour
 {
-    private GameObject mainInterface;
+    private GameObject main_btn;
+    private GameObject interfaces;
 
     // Start is called before the first frame update
     void Start()
     {
-        mainInterface = transform.Find("MenuUI").gameObject;
+        main_btn = transform.Find("menuButtons").gameObject;
+        interfaces = transform.Find("Interfaces").gameObject;
     }
 
     // Update is called once per frame
@@ -23,13 +25,16 @@ public class MainUIShowControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            if(mainInterface.activeInHierarchy == true)
+            gameObject.SendMessage("HidePanels");
+            if(main_btn.activeInHierarchy == true)
             {
-                mainInterface.SetActive(false);
+                main_btn.SetActive(false);
+                interfaces.SetActive(false);
             }
             else
             {
-                mainInterface.SetActive(true);
+                main_btn.SetActive(true);
+                interfaces.SetActive(true);
             }
         }
     }

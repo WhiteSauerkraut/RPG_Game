@@ -48,7 +48,7 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
     /**
      * 判断物品个数是否超过物品槽的容量m_Capacity
      * */
-    public bool isFiled() 
+    public bool IsFiled() 
     {
         ItemUI itemUI = transform.GetChild(0).GetComponent<ItemUI>();
         return itemUI.Amount >= itemUI.ItemDetail.m_Capacity;

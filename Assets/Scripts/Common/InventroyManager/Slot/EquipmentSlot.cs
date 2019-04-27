@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 /**
  * 装备物品槽类
- * 描述：有特殊限制的Slot——只能存放EquipmentType一致的装备
+ * 描述：只能存放EquipmentType一致的装备
  * */
 
 public class EquipmentSlot :Slot
@@ -29,29 +29,29 @@ public class EquipmentSlot :Slot
         // 鼠标左键有点击则往下
         if (eventData.button != PointerEventData.InputButton.Left) return; 
 
-        bool isUpdataProperty = false;
         // 鼠标上有物品
         if (InventroyManager.Instance.IsPickedItem == true)
         {
             ItemUI pickedItemUI = InventroyManager.Instance.PickedItem;
-            // 装备槽无装备
+            // 装备槽有装备
             if (transform.childCount > 0)
             {
                 ItemUI currentItemUI = transform.GetChild(0).GetComponent<ItemUI>();
                 if (IsRightItem(pickedItemUI.ItemDetail) && pickedItemUI.Amount == 1)
                 {
+                    transform.parent.SendMessage("Equip", (Equipment)pickedItemUI.ItemDetail);
+                    transform.parent.SendMessage("Remove", (Equipment)currentItemUI.ItemDetail);
                     pickedItemUI.Exchange(currentItemUI);
-                    isUpdataProperty = true;
                 }
             }
-            // 装备槽有装备
+            // 装备槽无装备
             else
             {
                 if (IsRightItem(pickedItemUI.ItemDetail))
                 {
                     this.StoreItem(pickedItemUI.ItemDetail);
                     InventroyManager.Instance.ReduceAmountItem(1);
-                    isUpdataProperty = true;
+                    transform.parent.SendMessage("Equip", (Equipment)pickedItemUI.ItemDetail);
                 }
             }
         }
@@ -62,15 +62,10 @@ public class EquipmentSlot :Slot
             if (transform.childCount>0)
             {
                 ItemUI currentItemUI = transform.GetChild(0).GetComponent<ItemUI>();
+                transform.parent.SendMessage("Remove", (Equipment)currentItemUI.ItemDetail);
                 InventroyManager.Instance.PickUpItem(currentItemUI.ItemDetail, currentItemUI.Amount);
                 Destroy(currentItemUI.gameObject);
-                isUpdataProperty = true;
             } 
-        }
-
-        if (isUpdataProperty == true)
-        {
-            transform.parent.SendMessage("UpdatePropertyText");
         }
     }
 

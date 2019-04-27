@@ -96,7 +96,7 @@ public class Inventroy : MonoBehaviour
     {
         foreach (Slot slot in slotArray)
         {
-            if (slot.transform.childCount >= 1 && item.m_Id == slot.GetItemID() && slot.isFiled() == false)
+            if (slot.transform.childCount >= 1 && item.m_Id == slot.GetItemID() && slot.IsFiled() == false)
             {
                 return slot;
             }

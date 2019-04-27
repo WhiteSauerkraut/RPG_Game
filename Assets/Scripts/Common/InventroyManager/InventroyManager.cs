@@ -192,21 +192,23 @@ public class InventroyManager : MonoBehaviour
     }
 
     /**
-     * 保存当前物品信息
+     * 保存当前物品信息到文件
      */
     public void SaveInventory()
     {
         Knapscak.Instance.SaveInventory();
         EquipmentInventroy.Instance.SaveInventory();
+        TaskInventroy.Instance.SaveInventory();
     }
 
     /**
-     * 加载物品信息
+     * 从文件加载物品信息
      * */
     public void LoadInventory() 
     {
         Knapscak.Instance.LoadInventory();
         EquipmentInventroy.Instance.LoadInventory();
+        TaskInventroy.Instance.LoadInventory();
     }
 
 }
