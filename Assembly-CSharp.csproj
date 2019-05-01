@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Common\Save\SaveManager.cs" />
      <Compile Include="Assets\Scripts\Common\StateManager.cs" />
      <Compile Include="Assets\Scripts\Common\Trade\TradeManager.cs" />
+     <Compile Include="Assets\Scripts\Common\Trade\TradeWindowManager.cs" />
      <Compile Include="Assets\Scripts\Components\Items\Consumable.cs" />
      <Compile Include="Assets\Scripts\Components\Items\Equipment.cs" />
      <Compile Include="Assets\Scripts\Components\Items\ItemDetail.cs" />
@@ -120,6 +121,7 @@
      <Compile Include="Assets\Scripts\UI\main\MenuUI\MainUIMannager.cs" />
      <Compile Include="Assets\Scripts\UI\main\MenuUI\MainUIShowControl.cs" />
      <Compile Include="Assets\Scripts\UI\main\MenuUI\Setting\SettingUIManager.cs" />
+     <Compile Include="Assets\Scripts\UI\main\MenuUI\Shop\CloseShopWindow.cs" />
      <Compile Include="Assets\Scripts\UI\main\StateManager.cs" />
      <Compile Include="Assets\Scripts\UI\main\talkWindow\TalkManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

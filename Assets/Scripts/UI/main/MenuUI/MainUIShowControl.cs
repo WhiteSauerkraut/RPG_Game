@@ -25,16 +25,14 @@ public class MainUIShowControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            gameObject.SendMessage("HidePanels");
             if(main_btn.activeInHierarchy == true)
             {
+                gameObject.SendMessage("HidePanels");
                 main_btn.SetActive(false);
-                interfaces.SetActive(false);
             }
             else
             {
                 main_btn.SetActive(true);
-                interfaces.SetActive(true);
             }
         }
     }

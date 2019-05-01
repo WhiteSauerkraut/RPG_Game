@@ -28,9 +28,62 @@ public class TradeManager : MonoBehaviour
 
     private Text moneyText;
 
-    void Start()
+    // 存储json解析出来的物品列表
+    private Dictionary<string, string> shopDic;
+
+    public void Start()
     {
+        ParseShopJson();
         money = GameObject.Find("GM").GetComponent<GlobeManager>().M_SaveData.Money;
+        moneyText = GameObject.Find("Canvas").transform.Find("MenuUI/Interfaces/Bag_Interface/text_money/Text").GetComponent<Text>();
+    }
+
+    /**
+     * 解析商店信息文件
+     * */
+    private void ParseShopJson()
+    {
+        shopDic = new Dictionary<string, string>();
+        TextAsset itemText = Resources.Load<TextAsset>("ShopItemList");
+        string itemJson = itemText.text;
+        JSONObject j = new JSONObject(itemJson);
+        foreach (var temp in j.list)
+        {
+            string shopname = temp["shopname"].str;
+            string itemlist = temp["itemlist"].str;
+            shopDic.Add(shopname, itemlist);
+        }
+    }
+
+    /**
+    * 根据店主姓名得到商品id数组
+    * */
+    public int[] GetItemByName(string shopname)
+    {
+        if(shopDic.ContainsKey(shopname))
+        {
+            int[] itemIdArray = System.Array.ConvertAll(shopDic[shopname].Split(','), int.Parse);
+            return itemIdArray;
+        }
+        return null;
+    }
+
+    /**
+     * 显示交易窗口
+     * */
+    public void ShowTradeWindow()
+    {
+        TradeWindowManager.Instance.Show();
+        VendorInventroy.Instance.InitShop();
+    }
+
+    /**
+     * 隐藏交易窗口
+     * */
+    public void HideTradeWindow()
+    {
+        TradeWindowManager.Instance.Hide();
+        VendorInventroy.Instance.ClearSlots();
     }
 
     /**
@@ -41,7 +94,7 @@ public class TradeManager : MonoBehaviour
         if (money >= amount)
         {
             money -= amount;
-            moneyText.text = money.ToString();
+            moneyText.text = "银两：" + money.ToString() + "两";
             return true;
         }
         return false;
@@ -53,6 +106,6 @@ public class TradeManager : MonoBehaviour
     public void EarnCoin(int amount)
     {
         this.money += amount;
-        moneyText.text = money.ToString();
+        moneyText.text = "银两：" + money.ToString() + "两";
     }
 }

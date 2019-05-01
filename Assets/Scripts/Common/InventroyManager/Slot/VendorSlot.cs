@@ -22,7 +22,6 @@ public class VendorSlot : Slot
         else if (eventData.button == UnityEngine.EventSystems.PointerEventData.InputButton.Left && InventroyManager.Instance.IsPickedItem == true)
         {
             transform.parent.parent.SendMessage("SellItem");
-            // 更新背包栏
         }
     }
 }

@@ -11,29 +11,30 @@ public class VendorInventroy : Inventroy
         {
             if (_instance == null)
             {
-                _instance = GameObject.Find("Canvas").transform.Find("VendorPanel").GetComponent<VendorInventroy>();
+                _instance = GameObject.Find("Canvas").transform.Find("ShopWindow/shopslots").GetComponent<VendorInventroy>();
             }
             return _instance;
         }
     }
 
     // 一个物品m_Id的数组，用于初始化商贩商品列表
-    public int[] itemIdArray;
+    private int[] itemIdArray;
     // 对交易管理脚本的引用
     private TradeManager tradeManager;
 
     public override void Start()
     {
         base.Start();
-        InitShop();
         tradeManager = GameObject.Find("GM").GetComponent<TradeManager>();
     }
 
     /**
      * 初始化商贩商品列表
      * */
-    private void InitShop() 
+    public void InitShop() 
     {
+        GameObject shoper = GameObject.Find("郭靖").GetComponent<ChooseNpc>().chooseNPC;
+        itemIdArray = tradeManager.GetItemByName(shoper.name);
         foreach (int itemId in itemIdArray)
         {
             StoreItem(itemId);

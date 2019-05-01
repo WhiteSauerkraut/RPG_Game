@@ -6,4 +6,5 @@ public interface InteractEvents
     void Talk();
     void Fight();
 
+    void Exchange();
 }

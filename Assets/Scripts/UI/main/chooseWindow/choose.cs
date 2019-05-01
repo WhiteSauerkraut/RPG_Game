@@ -15,7 +15,8 @@ public class choose : MonoBehaviour
 
         if (state == "exchange")
         {
-
+            this.gameObject.SetActive(false);
+            player.GetComponent<ChooseNpc>().chooseNPC.GetComponent<InteractEvents>().Exchange();
         }
 
         if (state == "task")

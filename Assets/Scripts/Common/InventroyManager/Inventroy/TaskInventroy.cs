@@ -13,7 +13,7 @@ public class TaskInventroy : Inventroy
         {
             if (_instance == null)
             {
-                _instance = GameObject.Find("Canvas").transform.Find("MenuUI/Interfaces/Bag_Interface/taskitemslot").GetComponent<TaskInventroy>();
+                _instance = GameObject.Find("Canvas").transform.Find("MenuUI/Interfaces/Bag_Interface/taskslot").GetComponent<TaskInventroy>();
             }
             return _instance;
         }

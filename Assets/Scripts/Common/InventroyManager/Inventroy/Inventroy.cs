@@ -105,6 +105,20 @@ public class Inventroy : MonoBehaviour
     }
 
     /**
+     * 清空物品槽
+     * */
+    public void ClearSlots()
+    {
+        foreach (Slot slot in slotArray)
+        {
+            if (slot.transform.childCount >= 1)
+            {
+                Destroy(slot.transform.GetChild(0).gameObject);
+            }
+        }
+    }
+
+    /**
      * 控制物品信息的保存（m_Id，Amount数量）
      * */
     public void SaveInventory() 
