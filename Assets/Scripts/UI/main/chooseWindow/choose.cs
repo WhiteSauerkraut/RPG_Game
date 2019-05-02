@@ -5,8 +5,15 @@ using UnityEngine;
 public class choose : MonoBehaviour
 {
     public GameObject player;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     public void SetState(string state)
     {
+        player = GameObject.FindGameObjectWithTag("Player");
 
         if (state == "talk")
         {

@@ -10,7 +10,7 @@ public class Fight : MonoBehaviour
     private void Awake()
     {
         bm = GameObject.Find("GM").GetComponent<BattleManager>();
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.FindGameObjectWithTag("BattleCanvas");
     }
     public void UseSkill(int i)
     {

@@ -7,6 +7,12 @@ public class StateManager : MonoBehaviour
     public GameObject player;
     public GameObject UI;
 
+    void Start()
+    {
+        UI = GameObject.FindGameObjectWithTag("Canvas");
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     // Update is called once per frame
     void Update()
     {

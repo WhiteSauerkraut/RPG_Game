@@ -8,6 +8,12 @@ public class BossInteract : MonoBehaviour,InteractEvents
     public string[] FightTexts;
     public TalkManager talkWindow;
 
+    void Start()
+    {
+        talkWindow = GameObject.FindGameObjectWithTag("Canvas").transform.Find("InteractSystem/TalkWindow")
+            .gameObject.GetComponent<TalkManager>();
+    }
+
     public void Talk()
     {
         talkWindow.Show(TalkTexts,TalkNext);

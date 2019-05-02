@@ -10,6 +10,11 @@ public class TalkManager : MonoBehaviour
     public GameObject player;
 
     public Next next;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     public void Show(string[] texts,Next next)
     {
         index = 0;

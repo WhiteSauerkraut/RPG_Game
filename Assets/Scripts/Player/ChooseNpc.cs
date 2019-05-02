@@ -7,6 +7,12 @@ public class ChooseNpc : MonoBehaviour
 
     public GameObject chooseNPC;
     public GameObject interactWindow;
+
+    void Start()
+    {
+        interactWindow = GameObject.FindGameObjectWithTag("Canvas").transform.Find("InteractSystem").gameObject;
+    }
+
     private void Update()
     {
         //当触发器选择到NPC时，按F与NPC交互
