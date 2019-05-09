@@ -1826,7 +1826,7 @@ GameObject:
   - component: {fileID: 145864509}
   m_Layer: 5
   m_Name: taskslot
-  m_TagString: KnapscakPanel
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2848,7 +2848,6 @@ GameObject:
   - component: {fileID: 238186184}
   - component: {fileID: 238186183}
   - component: {fileID: 238186182}
-  - component: {fileID: 238186181}
   m_Layer: 5
   m_Name: Button_Setting
   m_TagString: Untagged
@@ -2875,18 +2874,6 @@ RectTransform:
   m_AnchoredPosition: {x: 62.9, y: -61}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &238186181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238186179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1d4455130892f4dae34a8d4fa82ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &238186182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5560,38 +5547,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496427800}
   m_CullTransparentMesh: 0
---- !u!84 &523562533
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &530877286
 GameObject:
   m_ObjectHideFlags: 0
@@ -6233,7 +6188,6 @@ GameObject:
   - component: {fileID: 578524472}
   - component: {fileID: 578524471}
   - component: {fileID: 578524470}
-  - component: {fileID: 578524469}
   m_Layer: 5
   m_Name: Button_Bag
   m_TagString: Untagged
@@ -6260,18 +6214,6 @@ RectTransform:
   m_AnchoredPosition: {x: 22.6, y: -58.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &578524469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578524467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1d4455130892f4dae34a8d4fa82ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &578524470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9459,7 +9401,6 @@ GameObject:
   - component: {fileID: 942961130}
   - component: {fileID: 942961129}
   - component: {fileID: 942961128}
-  - component: {fileID: 942961127}
   m_Layer: 5
   m_Name: Button_Character
   m_TagString: Untagged
@@ -9486,18 +9427,6 @@ RectTransform:
   m_AnchoredPosition: {x: -15.9, y: -58.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &942961127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 942961125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1d4455130892f4dae34a8d4fa82ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &942961128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11009,6 +10938,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167669267}
   m_CullTransparentMesh: 0
+--- !u!1 &1171933087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171933088}
+  - component: {fileID: 1171933089}
+  m_Layer: 0
+  m_Name: test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1171933088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171933087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 285.2069, y: 488.6895, z: 36.307426}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1171933089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171933087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325104808b8623e41bc410a8e1092419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1180610071
 GameObject:
   m_ObjectHideFlags: 0
@@ -11977,6 +11949,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275586912}
   m_CullTransparentMesh: 0
+--- !u!84 &1288479122
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1321991888
 GameObject:
   m_ObjectHideFlags: 0
@@ -12442,38 +12446,6 @@ Transform:
   m_Father: {fileID: 962571794}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &1372490631
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1383325380
 GameObject:
   m_ObjectHideFlags: 0
@@ -14573,7 +14545,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1372490631}
+  m_TargetTexture: {fileID: 2084347191}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -14805,7 +14777,6 @@ GameObject:
   - component: {fileID: 1613676195}
   - component: {fileID: 1613676194}
   - component: {fileID: 1613676193}
-  - component: {fileID: 1613676192}
   m_Layer: 5
   m_Name: Button_Skill
   m_TagString: Untagged
@@ -14832,18 +14803,6 @@ RectTransform:
   m_AnchoredPosition: {x: 42.6, y: -59.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1613676192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613676190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1d4455130892f4dae34a8d4fa82ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1613676193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15254,7 +15213,6 @@ GameObject:
   - component: {fileID: 1686419390}
   - component: {fileID: 1686419391}
   - component: {fileID: 1686419392}
-  - component: {fileID: 1686419389}
   m_Layer: 0
   m_Name: GM
   m_TagString: Global
@@ -15310,18 +15268,6 @@ MonoBehaviour:
   que: []
   index: 0
   battleCount: 0
---- !u!114 &1686419389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686419385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325104808b8623e41bc410a8e1092419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1686419390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16177,7 +16123,6 @@ GameObject:
   - component: {fileID: 1813199565}
   - component: {fileID: 1813199564}
   - component: {fileID: 1813199563}
-  - component: {fileID: 1813199562}
   m_Layer: 5
   m_Name: Button_Task
   m_TagString: Untagged
@@ -16204,18 +16149,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.7, y: -58.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1813199562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813199560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1d4455130892f4dae34a8d4fa82ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1813199563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17921,8 +17854,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 2064334266}
   outlineCamera: {fileID: 1601324840}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1372490631}
-  extraRenderTexture: {fileID: 523562533}
+  renderTexture: {fileID: 2084347191}
+  extraRenderTexture: {fileID: 1288479122}
 --- !u!1 &2066154347
 GameObject:
   m_ObjectHideFlags: 0
@@ -18003,6 +17936,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066154347}
   m_CullTransparentMesh: 0
+--- !u!84 &2084347191
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &2097520699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4986261235765692, guid: a7a0ec23af5ab61418c817ba872dbbc0,

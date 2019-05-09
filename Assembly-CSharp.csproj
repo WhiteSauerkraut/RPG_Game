@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\Components\Items\Equipment.cs" />
      <Compile Include="Assets\Scripts\Components\Items\ItemDetail.cs" />
      <Compile Include="Assets\Scripts\Components\Items\ItemUI.cs" />
+     <Compile Include="Assets\Scripts\Components\Items\PropItemUI.cs" />
      <Compile Include="Assets\Scripts\Components\Items\QuestRelated.cs" />
      <Compile Include="Assets\Scripts\Components\Player\BasicProperty.cs" />
      <Compile Include="Assets\Scripts\Components\Player\BattleProperty.cs" />
@@ -113,12 +114,13 @@
      <Compile Include="Assets\Scripts\techtest\InitTransform.cs" />
      <Compile Include="Assets\Scripts\techtest\SaveTest.cs" />
      <Compile Include="Assets\Scripts\techtest\TestSkill.cs" />
-     <Compile Include="Assets\Scripts\Tools\CanvasDontDestroy.cs" />
+     <Compile Include="Assets\Scripts\UI\Battle\BattleBagManager.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\Fight.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\ShowWindows.cs" />
      <Compile Include="Assets\Scripts\UI\Battle\ViewScript.cs" />
      <Compile Include="Assets\Scripts\UI\main\chooseWindow\choose.cs" />
      <Compile Include="Assets\Scripts\UI\main\MenuUI\Bag\BagSwitch.cs" />
+     <Compile Include="Assets\Scripts\UI\main\MenuUI\CanvasDontDestroy.cs" />
      <Compile Include="Assets\Scripts\UI\main\MenuUI\MainUIMannager.cs" />
      <Compile Include="Assets\Scripts\UI\main\MenuUI\MainUIShowControl.cs" />
      <Compile Include="Assets\Scripts\UI\main\MenuUI\Setting\SettingUIManager.cs" />

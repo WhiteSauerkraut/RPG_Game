@@ -100,6 +100,6 @@ public class Fight : MonoBehaviour
 
     public void Escape()
     {
-        GameObject.Find("GM").GetComponent<SaveAssist>().LoadGameDataToScene();
+        GameObject.Find("GM").GetComponent<SaveAssist>().ReturnToScene();
     }
 }

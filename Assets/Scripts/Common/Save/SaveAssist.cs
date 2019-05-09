@@ -52,11 +52,25 @@ public class SaveAssist : MonoBehaviour
     {
         Debug.Log("Load From Global...");
         SaveData saveData = GameObject.Find("GM").GetComponent<GlobeManager>().M_SaveData;
+        StartCoroutine(LoadSceneAndData(saveData.CurSceneName));
+    }
+
+    /**
+     * 从战斗场景返回主场景
+     * */
+    public void ReturnToScene()
+    {
+        Debug.Log("Return to Scene...");
+        // 解除Canvas父子关系，防止Canvas被销毁
+        GameObject.Find("RootCanvas").transform.DetachChildren();
+        GameObject.FindGameObjectWithTag("Canvas").gameObject.GetComponent<CanvasDontDestroy>().Awake();
+        
+        SaveData saveData = GameObject.Find("GM").GetComponent<GlobeManager>().M_SaveData;
         StartCoroutine(LoadScene(saveData.CurSceneName));
     }
 
     /**
-     * 异步加载场景跟存储的人物位置
+     * 异步返回场景
      * */
     IEnumerator LoadScene(string sceneName)
     {
@@ -75,10 +89,32 @@ public class SaveAssist : MonoBehaviour
             yield return null;
         }
         StartCoroutine(AllowLoadingWindowHide(0.5f, loadingWindow));
+    }
+
+    /**
+     * 异步加载场景及存储游戏数据
+     * */
+    IEnumerator LoadSceneAndData(string sceneName)
+    {
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
+        yield return new WaitForEndOfFrame();
+        while (!async.isDone)
+        {
+            yield return null;
+        }
+        GameObject loadingWindow = GameObject.Find("Canvas").transform.Find("LoadingWindow").gameObject;
+        loadingWindow.SetActive(true);
+        GameObject player = GameObject.Find("郭靖");
+        player.AddComponent<SaveComponent>();
+        while (player.GetComponent<SaveComponent>() != null)
+        {
+            yield return null;
+        }
+        StartCoroutine(AllowLoadingWindowHide(0.5f, loadingWindow));
         // 重新加载场景后，需要初始化变量
         InventroyManager.Instance.Start();
-        InventroyManager.Instance.LoadInventory();
         TradeManager.Instance.Start();
+        InventroyManager.Instance.LoadInventory();
     }
 
     IEnumerator AllowLoadingWindowHide(float time, GameObject loadingWindow)
