@@ -108,6 +108,19 @@
      <Compile Include="Assets\Scripts\Player\WalkControl.cs" />
      <Compile Include="Assets\Scripts\Render\Outline.cs" />
      <Compile Include="Assets\Scripts\Render\OutlineEffect.cs" />
+     <Compile Include="Assets\Scripts\Task\MesManager.cs" />
+     <Compile Include="Assets\Scripts\Task\MonoSingletion.cs" />
+     <Compile Include="Assets\Scripts\Task\Notification.cs" />
+     <Compile Include="Assets\Scripts\Task\Task.cs" />
+     <Compile Include="Assets\Scripts\Task\TaskCondition.cs" />
+     <Compile Include="Assets\Scripts\Task\TaskEventArgs.cs" />
+     <Compile Include="Assets\Scripts\Task\TaskManager.cs" />
+     <Compile Include="Assets\Scripts\Task\TaskReward.cs" />
+     <Compile Include="Assets\Scripts\Task\TaskUI\TaskItem.cs" />
+     <Compile Include="Assets\Scripts\Task\TaskUI\TaskItemProcess.cs" />
+     <Compile Include="Assets\Scripts\Task\TaskUI\TaskItemReward.cs" />
+     <Compile Include="Assets\Scripts\Task\TaskUI\TaskPanel.cs" />
+     <Compile Include="Assets\Scripts\Task\Test.cs" />
      <Compile Include="Assets\Scripts\techtest\BagTest.cs" />
      <Compile Include="Assets\Scripts\techtest\devide.cs" />
      <Compile Include="Assets\Scripts\techtest\DontDestory.cs" />
@@ -167,6 +180,7 @@
      <None Include="Assets\GameAssets\OutlineEffect\Resources\OutlineBufferShader.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\Resources\Task.xml" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
