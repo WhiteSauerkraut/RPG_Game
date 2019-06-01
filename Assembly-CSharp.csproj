@@ -140,6 +140,7 @@
      <Compile Include="Assets\Scripts\UI\main\MenuUI\Shop\CloseShopWindow.cs" />
      <Compile Include="Assets\Scripts\UI\main\StateManager.cs" />
      <Compile Include="Assets\Scripts\UI\main\talkWindow\TalkManager.cs" />
+     <Compile Include="Assets\Scripts\UI\start\StartUIManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

@@ -32,8 +32,8 @@ public class CanvasDontDestroy : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerAttribute = player.GetComponent<PlayerAttribute>();
+        //player = GameObject.FindGameObjectWithTag("Player");
+        //playerAttribute = player.GetComponent<PlayerAttribute>();
     }
 
     void Update()
