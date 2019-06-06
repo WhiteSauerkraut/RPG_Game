@@ -12,6 +12,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveAssist : MonoBehaviour
 {
+    bool isLoad = false;
 
     /**
      * 存储人物位置
@@ -61,27 +62,33 @@ public class SaveAssist : MonoBehaviour
     public void ReturnToScene()
     {
         Debug.Log("Return to Scene...");
+
         // 解除Canvas父子关系，防止Canvas被销毁
         GameObject.Find("RootCanvas").transform.DetachChildren();
         GameObject.FindGameObjectWithTag("Canvas").gameObject.GetComponent<CanvasDontDestroy>().Awake();
         
         SaveData saveData = GameObject.Find("GM").GetComponent<GlobeManager>().M_SaveData;
-        StartCoroutine(LoadScene(saveData.CurSceneName));
+        StartCoroutine(ReturnScene(saveData.CurSceneName));
     }
 
     /**
-     * 异步返回场景
+     * 异步返回场景,加载人物位置
      * */
-    IEnumerator LoadScene(string sceneName)
+    public IEnumerator ReturnScene(string sceneName)
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
-        yield return new WaitForEndOfFrame();
+        GameObject loadingWindow = GameObject.FindGameObjectWithTag("Canvas").transform.Find("LoadingWindow").gameObject;
+        loadingWindow.SetActive(true);
+        loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress / 0.9f;
+        async.allowSceneActivation = false;
+        StartCoroutine(AllowSceneActivation(1f, async));
         while (!async.isDone)
         {
+            loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress / 0.9f;
             yield return null;
         }
-        GameObject loadingWindow = GameObject.Find("Canvas").transform.Find("LoadingWindow").gameObject;
-        loadingWindow.SetActive(true);
+
+        // 设置角色位置
         GameObject player = GameObject.Find("郭靖");
         player.AddComponent<SaveComponent>();
         while (player.GetComponent<SaveComponent>() != null)
@@ -89,31 +96,46 @@ public class SaveAssist : MonoBehaviour
             yield return null;
         }
         StartCoroutine(AllowLoadingWindowHide(0.5f, loadingWindow));
+
+        isLoad = true;
     }
 
     /**
-     * 异步加载场景及存储游戏数据
+     * 异步加载场景
+     * */
+    public IEnumerator LoadScene(string sceneName)
+    {
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
+        GameObject loadingWindow = GameObject.FindGameObjectWithTag("Canvas").transform.Find("LoadingWindow").gameObject;
+        loadingWindow.SetActive(true);
+        loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress / 0.9f;
+        async.allowSceneActivation = false;
+        StartCoroutine(AllowSceneActivation(1f, async));
+        while (!async.isDone)
+        {
+            loadingWindow.transform.Find("Slider").gameObject.GetComponent<Slider>().value = async.progress / 0.9f;
+            yield return null;
+        }
+
+        StartCoroutine(AllowLoadingWindowHide(0.5f, loadingWindow));
+        isLoad = true;
+    }
+
+    /**
+     * 异步加载场景，加载存储游戏数据
      * */
     IEnumerator LoadSceneAndData(string sceneName)
     {
-        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
-        yield return new WaitForEndOfFrame();
-        while (!async.isDone)
-        {
-            yield return null;
-        }
-        GameObject loadingWindow = GameObject.Find("Canvas").transform.Find("LoadingWindow").gameObject;
-        loadingWindow.SetActive(true);
-        GameObject player = GameObject.Find("郭靖");
-        player.AddComponent<SaveComponent>();
-        while (player.GetComponent<SaveComponent>() != null)
-        {
-            yield return null;
-        }
-        StartCoroutine(AllowLoadingWindowHide(0.5f, loadingWindow));
+        isLoad = false;
+        StartCoroutine(ReturnScene(sceneName));
+
+        yield return new WaitUntil(GetIsLoad);
+
         // 重新加载场景后，需要初始化变量
         InventroyManager.Instance.Start();
         TradeManager.Instance.Start();
+
+        // 从文件加载背包数据
         InventroyManager.Instance.LoadInventory();
     }
 
@@ -121,5 +143,16 @@ public class SaveAssist : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         loadingWindow.SetActive(false);
+    }
+
+    IEnumerator AllowSceneActivation(float time, AsyncOperation async)
+    {
+        yield return new WaitForSeconds(time);
+        async.allowSceneActivation = true;
+    }
+
+    bool GetIsLoad()
+    {
+        return isLoad;
     }
 }
