@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\Enum\State.cs" />
     <Compile Include="Assets\Scripts\Npc\boss\BossInteract.cs" />
     <Compile Include="Assets\Scripts\Npc\InteractEvents.cs" />
+    <Compile Include="Assets\Scripts\Npc\商人\BussinessMan.cs" />
     <Compile Include="Assets\Scripts\Npc\新手指导\newDiviserTalk.cs" />
     <Compile Include="Assets\Scripts\Npc\村姑\ladyTalk.cs" />
     <Compile Include="Assets\Scripts\Player\ChooseNpc.cs" />

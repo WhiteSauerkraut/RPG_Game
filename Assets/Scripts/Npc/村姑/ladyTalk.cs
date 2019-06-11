@@ -5,8 +5,8 @@ using UnityEngine;
 public class ladyTalk : MonoBehaviour, InteractEvents
 {
     public TalkManager talkWindow;
-    string[] TalkTexts;
-    string[] FightTexts;
+    public string[] TalkTexts;
+    public string[] FightTexts;
 
     void Start()
     {

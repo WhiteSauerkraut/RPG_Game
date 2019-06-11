@@ -2,5 +2,14 @@
   {
     "shopname": "完颜康",
     "itemlist":"1,2,3"
+  },
+  {
+    "shopname": "村姑",
+    "itemlist": "1,2,3"
+  },
+  {
+    "shopname": "商人",
+    "itemlist": "3,4,5"
   }
+
 ]
