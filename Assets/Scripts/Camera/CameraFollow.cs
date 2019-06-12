@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
 
     }
 
-    void Update()
+    void LateUpdate()
     {
         Camera.main.transform.LookAt(this.transform);
         //Demo版本仅支持pc

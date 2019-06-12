@@ -7,6 +7,12 @@ TagManager:
   - Block
   - Road
   - NPC
+  - character
+  - Global
+  - KnapscakPanel
+  - Canvas
+  - BattleCanvas
+  - Task_Interface
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,46 @@
+﻿<Root>
+  <Task1>
+    <taskName>消灭怪物</taskName>
+    <caption>消灭Enemy1*2,消灭Enemy2*3</caption>
+    
+    <conditionID>Enemy1</conditionID>
+    <conditionTargetAmount>2</conditionTargetAmount>
+    <conditionID>Enemy2</conditionID>
+    <conditionTargetAmount>3</conditionTargetAmount>
+    
+    <rewardID>Reward1</rewardID>
+    <rewardAmount>5</rewardAmount>
+    <rewardID>Reward2</rewardID>
+    <rewardAmount>3</rewardAmount>
+  </Task1>
+
+  <Task2>
+    <taskName>收集物品</taskName>
+    <caption>取得Item1*2,取得Item2*1</caption>
+    
+    <conditionID>Item1</conditionID>
+    <conditionTargetAmount>2</conditionTargetAmount>
+    <conditionID>Item2</conditionID>
+    <conditionTargetAmount>1</conditionTargetAmount>
+
+    <rewardID>Reward1</rewardID>
+    <rewardAmount>1</rewardAmount>
+    <rewardID>Reward2</rewardID>
+    <rewardAmount>2</rewardAmount>
+  </Task2>
+
+  <Task3>
+    <taskName>消灭怪物(2)</taskName>
+    <caption>消灭Enemy1*3,消灭Enemy2*2</caption>
+
+    <conditionID>Enemy1</conditionID>
+    <conditionTargetAmount>3</conditionTargetAmount>
+    <conditionID>Enemy2</conditionID>
+    <conditionTargetAmount>2</conditionTargetAmount>
+
+    <rewardID>Reward1</rewardID>
+    <rewardAmount>10</rewardAmount>
+    <rewardID>Reward2</rewardID>
+    <rewardAmount>30</rewardAmount>
+  </Task3>
+</Root>
