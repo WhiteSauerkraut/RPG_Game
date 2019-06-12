@@ -6,5 +6,9 @@
   {
     "shopname": "药店小二",
     "itemlist":"1,2"
+  },
+  {
+    "shopname": "商人",
+    "itemlist":"3,5,6"
   }
 ]

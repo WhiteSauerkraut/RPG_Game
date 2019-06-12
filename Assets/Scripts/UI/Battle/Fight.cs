@@ -102,4 +102,5 @@ public class Fight : MonoBehaviour
     {
         GameObject.Find("GM").GetComponent<SaveAssist>().ReturnToScene();
     }
+
 }

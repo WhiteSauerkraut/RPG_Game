@@ -27,6 +27,9 @@ public class SettingUIManager : MonoBehaviour
 
         SetSaveGameBtnListener();
         SetLoadGameBtnListener();
+        SetReturnGameBtnListener();
+        SetReturnLoginBtnListener();
+        SetQuitGameBtnListener();
     }
 
     void SetSaveGameBtnListener()
@@ -42,6 +45,38 @@ public class SettingUIManager : MonoBehaviour
         buttons[1].onClick.AddListener(delegate ()
         {
             SaveManager.GetInstance().Load();
+        });
+    }
+
+    void SetReturnGameBtnListener()
+    {
+        buttons[2].onClick.AddListener(delegate ()
+        {
+            
+        });
+    }
+
+    void SetReturnLoginBtnListener()
+    {
+        buttons[3].onClick.AddListener(delegate ()
+        {
+            SaveAssist saveAssist = GameObject.Find("GM").GetComponent<SaveAssist>();
+            saveAssist.StartCoroutine(saveAssist.LoadScene("startScene"));
+            GameObject canvas = GameObject.FindGameObjectWithTag("Canvas").gameObject;
+            GameObject start_UI = canvas.transform.Find("start_UI").gameObject;
+            GameObject MenuUI = canvas.transform.Find("MenuUI").gameObject;
+
+            MenuUI.GetComponent<MainUIMannager>().HidePanels();
+            MenuUI.transform.Find("menuButtons").gameObject.SetActive(false);
+            start_UI.SetActive(true);
+        });
+    }
+
+    void SetQuitGameBtnListener()
+    {
+        buttons[4].onClick.AddListener(delegate ()
+        {
+            Application.Quit();
         });
     }
 }

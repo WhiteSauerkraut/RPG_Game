@@ -4,7 +4,7 @@ using System;
 
 public class Notification : MonoSingletion<Notification> {
 
-    void Start()
+    void Awake()
     {
         TaskManager.Instance.getEvent += getPrintInfo;
         TaskManager.Instance.finishEvent += finishPrintInfo;
@@ -25,6 +25,13 @@ public class Notification : MonoSingletion<Notification> {
     public void rewardPrintInfo(System.Object sender, TaskEventArgs e)
     {
         print("奖励物品" + e.id + "数量" + e.amount);
+        if(e.id.Equals("经典血瓶"))
+        {
+            for(int i = 0; i < e.amount; i++)
+            {
+                Knapscak.Instance.StoreItem(1);
+            }
+        }
     }
 
     public void cancelPrintInfo(System.Object sender, TaskEventArgs e)

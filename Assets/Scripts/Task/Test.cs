@@ -21,10 +21,10 @@ public class Test : MonoBehaviour {
             TaskManager.Instance.GetTask("Task3");
         }
 
-        if (GUILayout.Button("打怪Enemy1"))
+        if (GUILayout.Button("打怪完颜康"))
         {
             TaskEventArgs e = new TaskEventArgs();
-            e.id = "Enemy1";
+            e.id = "完颜康";
             e.amount = 1;
             MesManager.Instance.Check(e);
         }

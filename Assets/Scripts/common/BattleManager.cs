@@ -235,6 +235,10 @@ public class BattleManager:MonoBehaviour
         if (BattleManager.isBattleEnd == 1)
         {
             Debug.Log("You win!");
+            TaskEventArgs e = new TaskEventArgs();
+            e.id = "完颜康";
+            e.amount = 1;
+            MesManager.Instance.Check(e);
             GameObject.Find("GlobalManager").GetComponent<Fight>().Escape();
         }
         else if (BattleManager.isBattleEnd == 2)
