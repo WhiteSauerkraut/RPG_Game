@@ -17,6 +17,9 @@ public class SaveManager
     // 存储人物信息目录
     private string savePlayerPath = Application.persistentDataPath + "/Save/Player";
 
+    // 存储任务信息目录
+    private string saveTaskPath = Application.persistentDataPath + "/Save/Task";
+
     // 存储游戏数据
     private string saveGameDataPath = Application.persistentDataPath + "/Save/GameData";
 
@@ -43,6 +46,7 @@ public class SaveManager
         SaveAssist saveAssist = GameObject.Find("GM").GetComponent<SaveAssist>();
         saveAssist.SaveGameDataFromScene();
         SavePlayersToFile();
+        SaveTasksToFile();
         SaveGameDataToFile();
         InventroyManager.Instance.SaveInventory();
     }
@@ -53,17 +57,20 @@ public class SaveManager
     public void Load()
     {
         Debug.Log("Load 调用.......");
-        if (!SaveHelper.IsDirectoryExists(savePlayerPath))
-        {
-            InitData();
-            Save();
-        }
-
         SaveAssist saveAssist = GameObject.Find("GM").GetComponent<SaveAssist>();
-
-        LoadPlayersFromFile();
-        LoadGameDataFromFile();
-        saveAssist.LoadGameDataToScene();
+        if (SaveHelper.IsDirectoryExists(savePlayerPath))
+        {
+            LoadPlayersFromFile();
+        }
+        if(SaveHelper.IsDirectoryExists(saveTaskPath))
+        {
+            LoadTasksFromFile();
+        }
+        if(SaveHelper.IsDirectoryExists(saveGameDataPath))
+        {
+            LoadGameDataFromFile();
+            saveAssist.LoadGameDataToScene();
+        }  
     }
 
     /**
@@ -153,6 +160,63 @@ public class SaveManager
             Player player = LoadPlayerFromFile(file.FullName);
             string key = Path.GetFileNameWithoutExtension(file.Name);
             players[key] = player;
+        }
+    }
+
+
+
+    /*
+     * 存储任务信息
+     */
+    private void SaveTaskToFile(SaveTask task)
+    {
+        string fileName = saveTaskPath + "/" + task.taskName + ".sav";
+        SaveHelper.SetData(fileName, task);
+    }
+
+    /*
+     * 读取任务信息
+     */
+    private SaveTask LoadTaskFromFile(string fileName)
+    {
+        SaveTask task = (SaveTask)SaveHelper.GetData(fileName, typeof(Task));
+        return task;
+    }
+
+    /*
+     * 存储全部任务的信息到文件
+     */
+    private void SaveTasksToFile()
+    {
+        if (!SaveHelper.IsDirectoryExists(saveTaskPath))
+        {
+            SaveHelper.CreateDirectory(saveTaskPath);
+        }
+
+        Dictionary<string, Task> tasks = TaskManager.Instance.dictionary;
+        foreach (string key in tasks.Keys)
+        {
+            Task task = tasks[key];
+            SaveTask saveTask = new SaveTask(task.taskID, task.taskName, task.caption, task.taskConditions, task.taskRewards);
+            SaveTaskToFile(saveTask);
+        }
+    }
+
+    /**
+     * 从文件加载全部角色的信息
+     */
+    private void LoadTasksFromFile()
+    {
+        DirectoryInfo dir = new DirectoryInfo(saveTaskPath);
+        FileInfo[] files = dir.GetFiles();
+
+        Dictionary<string, Task> tasks = TaskManager.Instance.dictionary;
+
+        foreach (FileInfo file in files)
+        {
+            SaveTask task = LoadTaskFromFile(file.FullName);
+            string key = Path.GetFileNameWithoutExtension(file.Name);
+            tasks[key] = new Task(task.taskID, task.taskName, task.caption, task.taskConditions, task.taskRewards);
         }
     }
 

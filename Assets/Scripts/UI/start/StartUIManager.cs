@@ -28,7 +28,7 @@ public class StartUIManager : MonoBehaviour
     void LoadStartScene()
     {
         SaveAssist saveAssist = GameObject.Find("GM").GetComponent<SaveAssist>();
-        saveAssist.StartCoroutine(saveAssist.LoadScene("mainScene"));
+        saveAssist.StartCoroutine(saveAssist.LoadScene("birthScene"));
         gameObject.SetActive(false);
     }
 

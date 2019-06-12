@@ -50,6 +50,14 @@ public class Task
         }
     }
 
+    public Task(string taskID, string taskName, string caption, List<TaskCondition> taskConditions, List<TaskReward> taskRewards)
+    {
+        this.taskID = taskID;
+        this.taskName = taskName;
+        this.taskConditions = taskConditions;
+        this.taskRewards = taskRewards;
+    }
+
     /**
      * 判断条件是否满足
      * */
