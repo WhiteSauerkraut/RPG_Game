@@ -15,6 +15,7 @@ public class newDiviserTalk : MonoBehaviour, InteractEvents
     {
         talkWindow = GameObject.FindGameObjectWithTag("Canvas").transform.Find("InteractSystem/TalkWindow")
             .gameObject.GetComponent<TalkManager>();
+        loadUI = GameObject.FindGameObjectWithTag("Canvas").transform.Find("LoadingWindow").gameObject;
     }
 
     public void Talk()
@@ -51,7 +52,6 @@ public class newDiviserTalk : MonoBehaviour, InteractEvents
         while (time > 0)
         {
             slider.value = asy.progress / 0.9f;
-            Debug.Log(asy.progress);
             time -= Time.deltaTime;
             yield return null;
         }

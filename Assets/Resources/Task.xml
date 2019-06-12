@@ -1,17 +1,13 @@
 ﻿<Root>
   <Task1>
-    <taskName>消灭怪物</taskName>
-    <caption>消灭Enemy1*2,消灭Enemy2*3</caption>
+    <taskName>英雄救美</taskName>
+    <caption>打败恶霸完颜康</caption>
     
-    <conditionID>Enemy1</conditionID>
-    <conditionTargetAmount>2</conditionTargetAmount>
-    <conditionID>Enemy2</conditionID>
-    <conditionTargetAmount>3</conditionTargetAmount>
+    <conditionID>完颜康</conditionID>
+    <conditionTargetAmount>1</conditionTargetAmount>
     
-    <rewardID>Reward1</rewardID>
+    <rewardID>经典血瓶</rewardID>
     <rewardAmount>5</rewardAmount>
-    <rewardID>Reward2</rewardID>
-    <rewardAmount>3</rewardAmount>
   </Task1>
 
   <Task2>

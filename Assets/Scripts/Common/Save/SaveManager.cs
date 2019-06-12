@@ -170,7 +170,7 @@ public class SaveManager
      */
     private void SaveTaskToFile(SaveTask task)
     {
-        string fileName = saveTaskPath + "/" + task.taskName + ".sav";
+        string fileName = saveTaskPath + "/" + task.taskID + ".sav";
         SaveHelper.SetData(fileName, task);
     }
 
@@ -179,7 +179,7 @@ public class SaveManager
      */
     private SaveTask LoadTaskFromFile(string fileName)
     {
-        SaveTask task = (SaveTask)SaveHelper.GetData(fileName, typeof(Task));
+        SaveTask task = (SaveTask)SaveHelper.GetData(fileName, typeof(SaveTask));
         return task;
     }
 
@@ -197,7 +197,7 @@ public class SaveManager
         foreach (string key in tasks.Keys)
         {
             Task task = tasks[key];
-            SaveTask saveTask = new SaveTask(task.taskID, task.taskName, task.caption, task.taskConditions, task.taskRewards);
+            SaveTask saveTask = new SaveTask(task.taskID);
             SaveTaskToFile(saveTask);
         }
     }
@@ -210,13 +210,12 @@ public class SaveManager
         DirectoryInfo dir = new DirectoryInfo(saveTaskPath);
         FileInfo[] files = dir.GetFiles();
 
-        Dictionary<string, Task> tasks = TaskManager.Instance.dictionary;
-
         foreach (FileInfo file in files)
         {
             SaveTask task = LoadTaskFromFile(file.FullName);
-            string key = Path.GetFileNameWithoutExtension(file.Name);
-            tasks[key] = new Task(task.taskID, task.taskName, task.caption, task.taskConditions, task.taskRewards);
+            //string key = Path.GetFileNameWithoutExtension(file.Name);
+            //tasks[key] = new Task(task.taskID);
+            TaskManager.Instance.GetTask(task.taskID);
         }
     }
 

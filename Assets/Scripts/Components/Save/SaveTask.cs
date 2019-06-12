@@ -10,18 +10,26 @@ public class SaveTask
 {
     // 任务ID
     public string taskID;
-    // 任务名字
-    public string taskName;
-    // 任务描述   
-    public string caption;
-    public List<TaskCondition> taskConditions;
-    public List<TaskReward> taskRewards;
+    //// 任务名字
+    //public string taskName;
+    //// 任务描述   
+    //public string caption;
+    //public List<TaskCondition> taskConditions;
+    //public List<TaskReward> taskRewards;
 
-    public SaveTask(string taskID, string taskName, string caption, List<TaskCondition> taskConditions, List<TaskReward> taskRewards)
+    //public SaveTask(string taskID, string taskName, string caption, List<TaskCondition> taskConditions, List<TaskReward> taskRewards)
+    //{
+    //    this.taskID = taskID;
+    //    this.taskName = taskName;
+    //    this.taskConditions = taskConditions;
+    //    this.taskRewards = taskRewards;
+    //}
+
+    public SaveTask(string taskID)
     {
         this.taskID = taskID;
-        this.taskName = taskName;
-        this.taskConditions = taskConditions;
-        this.taskRewards = taskRewards;
+    //    this.taskName = taskName;
+    //    this.taskConditions = taskConditions;
+    //    this.taskRewards = taskRewards;
     }
 }

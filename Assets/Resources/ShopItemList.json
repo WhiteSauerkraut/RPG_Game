@@ -2,5 +2,9 @@
   {
     "shopname": "完颜康",
     "itemlist":"1,2,3"
+  },
+  {
+    "shopname": "药店小二",
+    "itemlist":"1,2"
   }
 ]

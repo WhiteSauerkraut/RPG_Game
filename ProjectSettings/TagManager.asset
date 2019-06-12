@@ -13,6 +13,7 @@ TagManager:
   - Canvas
   - BattleCanvas
   - Task_Interface
+  - MyNPC
   layers:
   - Default
   - TransparentFX

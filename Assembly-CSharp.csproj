@@ -105,8 +105,13 @@
      <Compile Include="Assets\Scripts\Npc\boss\BossInteract.cs" />
      <Compile Include="Assets\Scripts\Npc\InteractEvents.cs" />
      <Compile Include="Assets\Scripts\Npc\商人\BussinessMan.cs" />
+     <Compile Include="Assets\Scripts\Npc\完颜康\FightMan.cs" />
+     <Compile Include="Assets\Scripts\Npc\指引道长\GuideDZ.cs" />
      <Compile Include="Assets\Scripts\Npc\新手指导\newDiviserTalk.cs" />
      <Compile Include="Assets\Scripts\Npc\村姑\ladyTalk.cs" />
+     <Compile Include="Assets\Scripts\Npc\药店小二\ItemShopper.cs" />
+     <Compile Include="Assets\Scripts\Npc\赠刀者\GiveWq.cs" />
+     <Compile Include="Assets\Scripts\Npc\黄蓉\TaskWoman.cs" />
      <Compile Include="Assets\Scripts\Player\ChooseNpc.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAttribute.cs" />
      <Compile Include="Assets\Scripts\Player\WalkControl.cs" />
