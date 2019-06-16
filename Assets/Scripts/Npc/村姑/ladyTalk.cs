@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ladyTalk : MonoBehaviour, InteractEvents
-{
+public class ladyTalk : MonoBehaviour
+{ 
     public TalkManager talkWindow;
     public string[] TalkTexts;
-    public string[] FightTexts;
+    
 
     void Start()
     {
@@ -19,23 +19,11 @@ public class ladyTalk : MonoBehaviour, InteractEvents
         talkWindow.Show(TalkTexts, TalkNext);
     }
 
-    public void Fight()
-    {
-        talkWindow.Show(FightTexts, FightNext);
-    }
-
-    void FightNext()
-    {
-
-    }
-
     void TalkNext()
     {
-        Debug.Log("Next");
-    }
+        GameObject.Find("GM").GetComponent<TradeManager>().EarnCoin(100);
 
-    public void Exchange()
-    {
-        TradeManager.Instance.ShowTradeWindow();
+        GameObject player = GameObject.FindGameObjectWithTag("Player").gameObject;
+        player.GetComponent<PlayerAttribute>().state = PlayerState.nomal;
     }
 }

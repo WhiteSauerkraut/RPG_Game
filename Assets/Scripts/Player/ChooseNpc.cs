@@ -44,6 +44,10 @@ public class ChooseNpc : MonoBehaviour
             {
                 chooseNPC.GetComponent<FightMan>().Talk();
             }
+            else if (chooseNPC.GetComponent<ladyTalk>() != null)
+            {
+                chooseNPC.GetComponent<ladyTalk>().Talk();
+            }
         }
     }
     //当NPC进入触发器时，选择该NPC
